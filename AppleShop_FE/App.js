@@ -4,7 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
+<<<<<<< Updated upstream
       <Text>Hoàng BÁO Đốm báo đời ăn hại backen làm như :))</Text>
+=======
+      <Text>Hoàng BÁO Đốm ăn hại </Text>
+>>>>>>> Stashed changes
       <StatusBar style="auto" />
     </View>
   );
