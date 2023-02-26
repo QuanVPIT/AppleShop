@@ -1,24 +1,25 @@
 var express = require("express");
 var router = express.Router();
 var UserController = require("../modules/users/UserController");
+const getConstant = require('../helper/constanst').getConstant;
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
-// /* http://localhost:3000/users/api/register */
-// router.post("/api/register", async function (req, res, next) {
-//   try {
-//     const { name, email, password, age, confirm_password } = req.body;
-//     const user = await UserController.register(  name, email,password,age,confirm_password);
-//     res.status(200).json({ user });
-//   } catch (error) {
-//     res.status(414).json({ error: error.message });
-//     console.log(error);
-//     next(error);
-//   }
-// });
+/* http://localhost:3000/users/api/register */
+router.post("/api/register", async function (req, res, next) {
+  try {
+    const { name, email, password, age, confirm_password } = req.body;
+    const user = await UserController.register(  name, email,password,age,confirm_password);
+    res.status(200).json({ user });
+  } catch (error) {
+    res.status(414).json({ error: error.message });
+    console.log(error);
+    next(error);
+  }
+});
 
 /* http://localhost:3000/users/api/login */
 router.post("/api/login", async function (req, res, next) {
