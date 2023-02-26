@@ -15,13 +15,13 @@ const login = async (email, password) => {
     return null;
 }
 
-const register = async (name, email, password, age) => {
+const register = async (name, email, password, mobile) => {
     //1. tạo user mới'
     //2. Lưu user mới
     //3. Trả về user mới
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-    const user = new UserModel({ name, email, password: hash, age });
+    const user = new UserModel({ name, email, password: hash, mobile });
     await user.save();
     return user;
 }
