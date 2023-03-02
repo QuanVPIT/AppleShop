@@ -1,16 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Homepage from './Src/Home/Homepage';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-<<<<<<< Updated upstream
-      <Text>Hoàng BÁO Đốm báo đời ăn hại backen làm như :))</Text>
-=======
-      <Text>Hoàng BÁO Đốm ăn hại </Text>
->>>>>>> Stashed changes
-      <StatusBar style="auto" />
-    </View>
+  //   <View style={styles.container}>
+  //       <NavigationContainer>
+  //  <Stack.Navigator>
+  //     <Stack.Screen name="Home" component={Homepage} />
+  //   </Stack.Navigator>
+  //     <StatusBar style="auto" />
+  //     </NavigationContainer>
+  //   </View>
+  <NavigationContainer>
+ 
+    <Stack.Navigator>
+    <Stack.Screen name="Home" component={Homepage} 
+    options={{headerShown: false}}/>
+  </Stack.Navigator>
+   
+</NavigationContainer>
   );
 }
 
