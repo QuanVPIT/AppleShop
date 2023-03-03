@@ -1,20 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native'
+import React from 'react'
+import ProfileScreen from './Scr/Profile/ProfileScreen'
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Hoàng BÁO Đốm</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <SafeAreaView>
+      <ProfileScreen/>
+    </SafeAreaView>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
