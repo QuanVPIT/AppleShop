@@ -17131,7 +17131,7 @@ be a descendant of the grid when it is being dragged.
    /* background-color: #009688;  */
    background-image: url(../images/logoapple.png);
    background-size: 800px  ;
-  background-position-x: -5%;
+  background-position-x: 5%;
   height: 100vh;
 }
 
