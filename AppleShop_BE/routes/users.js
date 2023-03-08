@@ -48,7 +48,7 @@ router.post("/cpanel/login", async function (req, res, next) {
   try {
     const { email, password } = req.body;
     if ( email == 'admin@gmail.com' && password == '123' ) {
-      res.render("index", { title: "Express", name: "Hoang" });
+      res.render("products/tao-moi", { title: "Express", name: "Hoang" });
     } else {
       throw new Error("Sai email hoặc mật khẩu");
     }
