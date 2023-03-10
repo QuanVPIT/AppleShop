@@ -112,6 +112,7 @@ const Homepage = (props) => {
           <View style={{ height: 35, width: 88, marginLeft: 15 }}>
             <View style={{ flex: 2, backgroundColor: "black", borderRadius: 25 }}>
               <Text style={styles.TextScrollView}>MacBoock</Text>
+              
             </View>
           </View>
           <View style={{ height: 35, width: 88, marginLeft: 15 }}>
@@ -131,7 +132,11 @@ const Homepage = (props) => {
           </View>
         </ScrollView>
       </View>
-
+      <FlatList
+                data={products}
+                renderItem={renderItem}
+                keyExtractor={item => item._id}
+              />
 
     </View>
   )

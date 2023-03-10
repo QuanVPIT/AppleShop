@@ -1,0 +1,23 @@
+<form method="post" action="/san-pham2/tao-moi2" enctype="multipart/form-data">
+    <input type="text" name="name" id="name" placeholder="Nhập sản phẩm" /> <br />
+    <input type="number" name="year" id="year" placeholder="Năm sản xuất" /> <br />
+    <input type="file" name="image" id="image" onchange="loadFile(event);" /> <br />
+    <img width="250" height="250" id="img-display" alt="Image" src="{{airpod.image}}"><br />
+    <select name="categoryId">
+        {{#each categories}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+    </select> <br/>
+    <input type="submit" value="Tạo mới"/>  <br/>
+</form>
+
+<script>
+    const loadFile = function (event) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('img-display');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
