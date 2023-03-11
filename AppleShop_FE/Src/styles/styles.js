@@ -63,15 +63,16 @@ const styles = StyleSheet.create({
   },
   tabs: {
     flexDirection: 'row',
-    marginBottom: 20,
-    marginLeft: 15,
-
+    marginLeft: 1,
+    height: 100,
   },
   tabs1: {
     flexDirection: 'row',
     marginBottom: 20,
-    marginLeft: 0,
-    marginTop: -450,
+    marginLeft: 1,
+    flex: 1,
+    top: -20,
+    // marginTop: -320,
 
   },
   tab: {
@@ -83,7 +84,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginRight: -5,
     borderRadius: 5,
-
   },
   tabText: {
     fontWeight: 'bold',
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   activeTab: {
-
+    
   },
   tabContentText: {
     width: 500,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
 
   },
   tabContent: {
-
+    backgroundColor: 'red',
   },
   tinyLogo5: {
     width: 88,
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     width: 88,
     height: 35,
-    padding: 1,
+    padding: 6,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -183,6 +183,29 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
 
-  }
+  },
+  viewmacdisplays: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    gap:10,
+    position: 'absolute',
+    width:84,
+    height:34,
+    backgroundColor:"#FFFFFF",
+    borderRadius:25,
+    top:10,
+    marginLeft:10
+
+  },
+  textmacdisplays: {
+    width: 74,
+    height: 17,
+    fontWeight: '800',
+    fontSize: 11
+  },
+
 });
 export default styles;

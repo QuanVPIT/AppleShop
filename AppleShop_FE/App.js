@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Homepage from './Src/Home/Homepage';
+import TabView from './Src/Home/TabView';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
   //     <StatusBar style="auto" />
   //     </NavigationContainer>
   //   </View>
-  <NavigationContainer>
+ <NavigationContainer>
  
     <Stack.Navigator>
     <Stack.Screen name="Home" component={Homepage} 
@@ -23,6 +24,7 @@ export default function App() {
   </Stack.Navigator>
    
 </NavigationContainer>
+
   );
 }
 
