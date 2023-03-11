@@ -94,11 +94,15 @@ const Homepage = () => {
       <View style={styles.tabContent}>
         {activeTab === 'Tab 1' && (
           <View style={styles.tabText1}>
+            
             <View style={styles.tabs1}>
 
-              <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1' && styles.activeTab]}
-                onPress={() => handleTabPress('Tab 1')}
+             
+
+                
+                <TouchableOpacity
+                style={[styles.tab1, activeTab === 'Tab 1.1' && styles.activeTab]}
+                onPress={() => handleTabPress('Tab 1.1')}
               >
                 <View style={styles.viewmac}>
                   <Text styles={styles.textmac}>MacBook</Text>
@@ -106,8 +110,8 @@ const Homepage = () => {
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1' && styles.activeTab]}
-                onPress={() => handleTabPress('Tab 1')}
+                style={[styles.tab1, activeTab === 'Tab 1.2' && styles.activeTab]}
+                onPress={() => handleTabPress('Tab 1.2')}
               >
                 <View style={styles.viewimac}>
                   <Text style={styles.textimac}>iMac</Text>
@@ -116,22 +120,25 @@ const Homepage = () => {
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1' && styles.activeTab]}
-                onPress={() => handleTabPress('Tab 1')}
+                style={[styles.tab1, activeTab === 'Tab 1.3' && styles.activeTab]}
+                onPress={() => handleTabPress('Tab 1.3')}
               >
                 <View style={styles.viewimac}>
-                  <Text style={styles.textimac}>iMac</Text>
+                  <Text style={styles.textmac}>Mac mini</Text>
                 </View>
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1' && styles.activeTab]}
-                onPress={() => handleTabPress('Tab 1')}
+                style={[styles.tab1, activeTab === 'Tab 1.4' && styles.activeTab]}
+                onPress={() => handleTabPress('Tab 1.4')}
               >
-                <View style={styles.viewimac}>
-                  <Text style={styles.textimac}>iMac</Text>
+                <View style={styles.viewmacdisplays}>
+                  <Text style={styles.textmacdisplays}>Mac Displays</Text>
                 </View>
               </TouchableOpacity>
+                
+
+              
 
 
             </View>
@@ -171,6 +178,61 @@ const Homepage = () => {
 
           </View>
         )}
+      </View>
+
+      <View>
+        <View style={styles.tabContent}>
+          {activeTab === 'Tab 1.1' && (
+            <View style={styles.tabText1}>
+              <View style={styles.tabs1}>
+                <View>
+                  <Text>
+                    MacBook
+                  </Text>
+                </View>
+              </View>
+            </View>
+          )}
+        </View>
+
+        <View style={styles.tabContent}>
+          {activeTab === 'Tab 1.2' && (
+            <View style={styles.tabContentText2}>
+              <View>
+                <Text>
+                  iMac
+                </Text>
+              </View>
+            </View>
+          )}
+
+        </View>
+
+        <View style={styles.tabContent}>
+          {activeTab === 'Tab 1.3' && (
+            <View style={styles.tabContentText2}>
+              <View>
+                <Text>
+
+                </Text>
+              </View>
+            </View>
+          )}
+
+        </View>
+
+        <View style={styles.tabContent}>
+          {activeTab === 'Tab 1.4' && (
+            <View style={styles.tabContentText2}>
+              <View>
+                <Text>
+                  j
+                </Text>
+              </View>
+            </View>
+          )}
+
+        </View>
       </View>
     </View>
   )

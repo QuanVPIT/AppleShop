@@ -64,13 +64,13 @@ const styles = StyleSheet.create({
   tabs: {
     flexDirection: 'row',
     marginBottom: 20,
-    marginLeft: 20,
+    marginLeft: 1,
 
   },
   tabs1: {
     flexDirection: 'row',
     marginBottom: 20,
-    marginLeft: 20,
+    marginLeft: 1,
     marginTop: -320,
 
   },
@@ -151,38 +151,61 @@ const styles = StyleSheet.create({
   },
   viewmac: {
     borderRadius: 25,
-    backgroundColor:"#FFFFFF",
+    backgroundColor: "#FFFFFF",
     width: 88,
-    height:35,
-    padding:6,
+    height: 35,
+    padding: 6,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  textmac:{
-    width:51,
-    height:17,
-    fontSize:'bold',
-    fontWeight:'800',
-    fontSize:12,
-    lineHeight:16,
+  textmac: {
+    width: 51,
+    height: 17,
+    fontSize: 'bold',
+    fontWeight: '800',
+    fontSize: 12,
+    lineHeight: 16,
   },
   viewimac: {
     borderRadius: 25,
-    backgroundColor:"#FFFFFF",
+    backgroundColor: "#FFFFFF",
     width: 88,
-    height:35,
-    padding:8,
+    height: 35,
+    padding: 8,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  textimac:{
-    width:27,
-    height:17,
-    fontSize:'bold',
-    fontWeight:'800',
-    fontSize:12,
-    lineHeight:16,
+  textimac: {
+    width: 27,
+    height: 17,
+    fontSize: 'bold',
+    fontWeight: '800',
+    fontSize: 12,
+    lineHeight: 16,
 
-  }
+  },
+  viewmacdisplays: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    gap:10,
+    position: 'absolute',
+    width:84,
+    height:34,
+    backgroundColor:"#FFFFFF",
+    borderRadius:25,
+    top:10,
+    marginLeft:10
+
+  },
+  textmacdisplays: {
+    width: 74,
+    height: 17,
+    fontWeight: '800',
+    fontSize: 11
+  },
+
 });
 export default styles;
