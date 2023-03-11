@@ -8,9 +8,12 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 
 const Homepage = () => {
   const [activeTab, setActiveTab] = useState('Tab 1');
-
+  const [activeTab2, setActiveTab2] = useState('Tab 1.1');
   const handleTabPress = (tabName) => {
     setActiveTab(tabName);
+  };
+  const handleTabPress2 = (tabName) => {
+    setActiveTab2(tabName);
   };
   return (
     <View style={styles.container}>
@@ -42,7 +45,9 @@ const Homepage = () => {
         />
       </View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}
+        style={{ flexGrow: 0.1 }}
+      >
 
         <View style={styles.tabs}>
           <TouchableOpacity
@@ -54,7 +59,7 @@ const Homepage = () => {
               source={require('../Images/imac.png')} />
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'Tab 2' && styles.activeTab]}
+            style={[styles.tab1, activeTab === 'Tab 2' && styles.activeTab]}
             onPress={() => handleTabPress('Tab 2')}
           >
             <Image
@@ -63,7 +68,7 @@ const Homepage = () => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'Tab 3' && styles.activeTab]}
+            style={[styles.tab1, activeTab === 'Tab 3' && styles.activeTab]}
             onPress={() => handleTabPress('Tab 3')}
           >
             <Image
@@ -71,7 +76,7 @@ const Homepage = () => {
               source={require('../Images/ipad.png')} />
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'Tab 4' && styles.activeTab]}
+            style={[styles.tab1, activeTab === 'Tab 4' && styles.activeTab]}
             onPress={() => handleTabPress('Tab 4')}
           >
             <Image
@@ -91,149 +96,111 @@ const Homepage = () => {
       </ScrollView>
 
       {/* // tab 1 */}
-      <View style={styles.tabContent}>
-        {activeTab === 'Tab 1' && (
-          <View style={styles.tabText1}>
-            
-            <View style={styles.tabs1}>
 
-             
+      {activeTab === 'Tab 1' && (
+        <View style={styles.tabText1}>
+          <View style={styles.tabs1}>
+            <TouchableOpacity
+              style={[styles.tab1, activeTab === 'Tab 1.1' && styles.activeTab]}
+              onPress={() => handleTabPress2('Tab 1.1')}
+            >
+              <View style={styles.viewmac}>
+                <Text styles={styles.textmac}>MacBook</Text>
+              </View>
+            </TouchableOpacity>
 
-                
-                <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1.1' && styles.activeTab]}
-                onPress={() => handleTabPress('Tab 1.1')}
-              >
-                <View style={styles.viewmac}>
-                  <Text styles={styles.textmac}>MacBook</Text>
-                </View>
-              </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.tab1, activeTab === 'Tab 1.2' && styles.activeTab]}
+              onPress={() => handleTabPress2('Tab 1.2')}
+            >
+              <View style={styles.viewimac}>
+                <Text style={styles.textimac}>iMac</Text>
+              </View>
 
-              <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1.2' && styles.activeTab]}
-                onPress={() => handleTabPress('Tab 1.2')}
-              >
-                <View style={styles.viewimac}>
-                  <Text style={styles.textimac}>iMac</Text>
-                </View>
+            </TouchableOpacity>
 
-              </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.tab1, activeTab === 'Tab 1.3' && styles.activeTab]}
+              onPress={() => handleTabPress2('Tab 1.3')}
+            >
+              <View style={styles.viewimac}>
+                <Text style={styles.textmac}>Mac mini</Text>
+              </View>
+            </TouchableOpacity>
 
-              <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1.3' && styles.activeTab]}
-                onPress={() => handleTabPress('Tab 1.3')}
-              >
-                <View style={styles.viewimac}>
-                  <Text style={styles.textmac}>Mac mini</Text>
-                </View>
-              </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.tab1, activeTab === 'Tab 1.4' && styles.activeTab]}
+              onPress={() => handleTabPress2('Tab 1.4')}
+            >
+              <View style={styles.viewmacdisplays}>
+                <Text style={styles.textmacdisplays}>Mac Displays</Text>
+              </View>
+            </TouchableOpacity>
 
-              <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1.4' && styles.activeTab]}
-                onPress={() => handleTabPress('Tab 1.4')}
-              >
-                <View style={styles.viewmacdisplays}>
-                  <Text style={styles.textmacdisplays}>Mac Displays</Text>
-                </View>
-              </TouchableOpacity>
-                
-
-              
-
-
-            </View>
           </View>
-        )}
-      </View>
+        </View>
+      )}
       {/* //tab2 */}
-      <View style={styles.tabContent}>
-        {activeTab === 'Tab 2' && (
-          <View style={styles.tabContentText2}>
+      {activeTab === 'Tab 2' && (
+        <View style={styles.tabText1}>
 
-          </View>
-        )}
-
-      </View>
+        </View>
+      )}
       {/* //tab3 */}
-      <View style={styles.tabContent}>
-        {activeTab === 'Tab 3' && (
-          <View style={styles.tabContentText3}>
 
-          </View>
-        )}
+      {activeTab === 'Tab 3' && (
+        <View style={styles.tabText1}>
 
-      </View>
+        </View>
+      )}
       {/* tab4 */}
-      <View style={styles.tabContent}>
-        {activeTab === 'Tab 4' && (
-          <View style={styles.tabContentText4}>
+      {activeTab === 'Tab 4' && (
+        <View style={styles.tabText1}>
 
-          </View>
-        )}
-      </View>
+        </View>
+      )}
       {/* tab5 */}
-      <View style={styles.tabContent}>
-        {activeTab === 'Tab 5' && (
-          <View style={styles.tabContentText4}>
 
+      {activeTab === 'Tab 5' && (
+        <View style={styles.tabText1}>
+
+        </View>
+      )}
+   {/* tab1 nho */}
+      {activeTab2 === 'Tab 1.1' && (
+        <View style={{ flex: 1 }}>
+
+          <Text>
+            MacBook
+          </Text>
+        </View>
+      )}
+      {activeTab2 === 'Tab 1.2' && (
+        <View style={{ flex: 1 }}>
+
+          <Text>
+            iMac
+          </Text>
+        </View>
+      )}
+      {activeTab2 === 'Tab 1.3' && (
+        <View style={{ flex: 1 }}>
+
+          <Text>
+            Mac mini
+          </Text>
+        </View>
+      )}
+      {activeTab2 === 'Tab 1.4' && (
+        <View style={{ flex: 1 }}>
+          <View style={{}}>
+            <Text>
+              macdisplays
+            </Text>
           </View>
-        )}
-      </View>
-
-      <View>
-        <View style={styles.tabContent}>
-          {activeTab === 'Tab 1.1' && (
-            <View style={styles.tabText1}>
-              <View style={styles.tabs1}>
-                <View>
-                  <Text>
-                    MacBook
-                  </Text>
-                </View>
-              </View>
-            </View>
-          )}
         </View>
+      )}
 
-        <View style={styles.tabContent}>
-          {activeTab === 'Tab 1.2' && (
-            <View style={styles.tabContentText2}>
-              <View>
-                <Text>
-                  iMac
-                </Text>
-              </View>
-            </View>
-          )}
-
-        </View>
-
-        <View style={styles.tabContent}>
-          {activeTab === 'Tab 1.3' && (
-            <View style={styles.tabContentText2}>
-              <View>
-                <Text>
-
-                </Text>
-              </View>
-            </View>
-          )}
-
-        </View>
-
-        <View style={styles.tabContent}>
-          {activeTab === 'Tab 1.4' && (
-            <View style={styles.tabContentText2}>
-              <View>
-                <Text>
-                  j
-                </Text>
-              </View>
-            </View>
-          )}
-
-        </View>
-      </View>
     </View>
   )
 }

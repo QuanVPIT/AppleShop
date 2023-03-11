@@ -63,15 +63,16 @@ const styles = StyleSheet.create({
   },
   tabs: {
     flexDirection: 'row',
-    marginBottom: 20,
     marginLeft: 1,
-
+    height: 100,
   },
   tabs1: {
     flexDirection: 'row',
     marginBottom: 20,
     marginLeft: 1,
-    marginTop: -320,
+    flex: 1,
+    top: -20,
+    // marginTop: -320,
 
   },
   tab: {
@@ -83,7 +84,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginRight: -5,
     borderRadius: 5,
-
   },
   tabText: {
     fontWeight: 'bold',
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   activeTab: {
-
+    
   },
   tabContentText: {
     width: 500,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
 
   },
   tabContent: {
-
+    backgroundColor: 'red',
   },
   tinyLogo5: {
     width: 88,
