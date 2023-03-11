@@ -64,14 +64,14 @@ const styles = StyleSheet.create({
   tabs: {
     flexDirection: 'row',
     marginBottom: 20,
-    marginLeft: 20,
+    marginLeft: 15,
 
   },
   tabs1: {
     flexDirection: 'row',
     marginBottom: 20,
-    marginLeft: 20,
-    marginTop: -320,
+    marginLeft: 0,
+    marginTop: -450,
 
   },
   tab: {
@@ -151,37 +151,37 @@ const styles = StyleSheet.create({
   },
   viewmac: {
     borderRadius: 25,
-    backgroundColor:"#FFFFFF",
+    backgroundColor: "#FFFFFF",
     width: 88,
-    height:35,
-    padding:6,
+    height: 35,
+    padding: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  textmac:{
-    width:51,
-    height:17,
-    fontSize:'bold',
-    fontWeight:'800',
-    fontSize:12,
-    lineHeight:16,
+  textmac: {
+    width: 51,
+    height: 17,
+    fontSize: 'bold',
+    fontWeight: '800',
+    fontSize: 12,
+    lineHeight: 16,
   },
   viewimac: {
     borderRadius: 25,
-    backgroundColor:"#FFFFFF",
+    backgroundColor: "#FFFFFF",
     width: 88,
-    height:35,
-    padding:8,
+    height: 35,
+    padding: 8,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  textimac:{
-    width:27,
-    height:17,
-    fontSize:'bold',
-    fontWeight:'800',
-    fontSize:12,
-    lineHeight:16,
+  textimac: {
+    width: 27,
+    height: 17,
+    fontSize: 'bold',
+    fontWeight: '800',
+    fontSize: 12,
+    lineHeight: 16,
 
   }
 });
