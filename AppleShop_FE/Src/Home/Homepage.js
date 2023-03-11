@@ -166,7 +166,7 @@ const Homepage = () => {
 
         </View>
       )}
-   {/* tab1 nho */}
+   {/* tab1 nho chuyen api */}
       {activeTab2 === 'Tab 1.1' && (
         <View style={{ flex: 1 }}>
 
