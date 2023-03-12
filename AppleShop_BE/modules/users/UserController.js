@@ -1,11 +1,11 @@
 
 const UserService = require('./UserSerVice');
 
-const register = async (name, email, password, age, confirm_password) =>{
+const register = async (name, email, password, mobile, confirm_password) =>{
     if(password !== confirm_password){
         throw new Error('Dữ liệu không chính xác')
     }
-    const user = await UserService.register(name, email, password, age);
+    const user = await UserService.register(name, email, password, mobile);
     return user;
 }
 

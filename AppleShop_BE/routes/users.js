@@ -7,18 +7,18 @@ router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
-// /* http://localhost:3000/users/api/register */
-// router.post("/api/register", async function (req, res, next) {
-//   try {
-//     const { name, email, password, age, confirm_password } = req.body;
-//     const user = await UserController.register(  name, email,password,age,confirm_password);
-//     res.status(200).json({ user });
-//   } catch (error) {
-//     res.status(414).json({ error: error.message });
-//     console.log(error);
-//     next(error);
-//   }
-// });
+/* http://localhost:3000/users/api/register */
+router.post("/api/register", async function (req, res, next) {
+  try {
+    const { name, email, password, age, confirm_password } = req.body;
+    const user = await UserController.register(name, email, password, age, confirm_password);
+    res.status(200).json({ user });
+  } catch (error) {
+    res.status(414).json({ error: error.message });
+    console.log(error);
+    next(error);
+  }
+});
 
 /* http://localhost:3000/users/api/login */
 router.post("/api/login", async function (req, res, next) {
@@ -28,7 +28,7 @@ router.post("/api/login", async function (req, res, next) {
     if (user) {
       res.status(200).json({ user });
     } else {
-      res.status(401).json({ error: 'Sai email hoặc mật khẩu'});
+      res.status(401).json({ error: 'Sai email hoặc mật khẩu' });
     }
   } catch (error) {
     res.status(401).json({ error: error.message });
@@ -46,8 +46,8 @@ router.get("/cpanel/login", async function (req, res, next) {
 router.post("/cpanel/login", async function (req, res, next) {
   try {
     const { email, password } = req.body;
-    if ( email == 'admin@gmail.com' && password == '123' ) {
-      res.render("index", { title: "Express", name: "Hoang" });
+    if (email == 'admin@gmail.com' && password == '123') {
+      res.render('index');
     } else {
       throw new Error("Sai email hoặc mật khẩu");
     }

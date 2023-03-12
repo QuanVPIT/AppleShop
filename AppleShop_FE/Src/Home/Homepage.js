@@ -1,16 +1,20 @@
 import { View, Text, Button } from 'react-native'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/styles';
-import { StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
-
-import { TabView, SceneMap } from 'react-native-tab-view';
-
+import { StyleSheet, Image, ScrollView, TouchableOpacity, FlatList } from 'react-native';
+import axios from 'axios';
+import getConstant from '../../helper/Constanst';
 
 const Homepage = () => {
   const [activeTab, setActiveTab] = useState('Tab 1');
+<<<<<<< HEAD
   const [activeTab1, setActiveTab1] = useState('Tab 1.1');
+=======
+  const [activeTab2, setActiveTab2] = useState('Tab 1.1');
+>>>>>>> Hoang_DEV
 
   const handleTabPress = (tabName) => {
+
     setActiveTab(tabName);
   };
   const handleTabPress1 = (tabName) => {
@@ -27,6 +31,75 @@ const Homepage = () => {
   const tab3 = (tabName) => {
     handleTabPress(tabName);
     handleTabPress1('Tab 3.1');
+  };
+  const [macs, setMacs] = useState([]);
+  useEffect(() => {
+    axios.get(`${getConstant().HOST}/san-pham1`)
+      .then(function (response) {
+        console.log('response: ', response.data);
+        setMacs(response.data);
+      })
+      .catch(function (error) {
+        console.log('error: ', error);
+      });
+  }, []);
+  const [airpods, setAirpods] = useState([]);
+  useEffect(() => {
+    axios.get(`${getConstant().HOST}/san-pham2`)
+      .then(function (response) {
+        console.log('response: ', response.data);
+        setAirpods(response.data);
+      })
+      .catch(function (error) {
+        console.log('error: ', error);
+      });
+  }, []);
+  const [iphones, setIphones] = useState([]);
+  useEffect(() => {
+    axios.get(`${getConstant().HOST}/san-pham3`)
+      .then(function (response) {
+        console.log('response: ', response.data);
+        setIphones(response.data);
+      })
+      .catch(function (error) {
+        console.log('error: ', error);
+      });
+  }, []);
+  const [ipads, setIpads] = useState([]);
+  useEffect(() => {
+    axios.get(`${getConstant().HOST}/san-pham4`)
+      .then(function (response) {
+        console.log('response: ', response.data);
+        setIpads(response.data);
+      })
+      .catch(function (error) {
+        console.log('error: ', error);
+      });
+  }, []);
+  const [watchs, setWatchs] = useState([]);
+  useEffect(() => {
+    axios.get(`${getConstant().HOST}/san-pham5`)
+      .then(function (response) {
+        console.log('response: ', response.data);
+        setWatchs(response.data);
+      })
+      .catch(function (error) {
+        console.log('error: ', error);
+      });
+  }, []);
+
+  const renderItem = ({ item }) => {
+    const { name, year, image } = item;
+    return (
+      <View style={styles.item}>
+        <Image style={styles.image} source={{ uri: image }} resizeMode={'cover'} />
+        <View style={styles.table}>
+          <Text style={styles.year}>{year}</Text>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.Detail}>Detail</Text>
+        </View>
+      </View>
+    )
   };
   return (
     <View style={styles.container}>
@@ -49,6 +122,7 @@ const Homepage = () => {
             source={require('../Images/hinhanh.png')}
           />
         </View>
+
 
       </View>
       <View style={styles.backgourdlogo}>
@@ -114,9 +188,14 @@ const Homepage = () => {
         <View style={styles.tabText1}>
           <View style={styles.tabs1}>
             <TouchableOpacity
+<<<<<<< HEAD
               style={[styles.tab1, activeTab === 'Tab 1.1' && styles.activeTab]}
               onPress={() => handleTabPress1('Tab 1.1')}
             >
+=======
+              style={[styles.tab1, activeTab === 'Tab 1.1' && styles.activeTab && styles.custumTab]}
+              onPress={() => handleTabPress2('Tab 1.1')}>
+>>>>>>> Hoang_DEV
               <View style={styles.viewmac}>
                 <Text styles={styles.textmac}>MacBook</Text>
               </View>
@@ -218,6 +297,7 @@ const Homepage = () => {
         </View>
       )}
       {/* tab1 nho chuyen api */}
+<<<<<<< HEAD
       {activeTab1 === 'Tab 1.1' && (
         <View style={{ flex: 1 }}>
 
@@ -244,10 +324,35 @@ const Homepage = () => {
       )}
       {activeTab1 === 'Tab 1.4' && (
         <View style={{ flex: 1 }}>
+=======
+      {activeTab2 === 'Tab 1.1' && (
+        <View style={{ flex: 2 }}>
+          <FlatList
+            numColumns={2}
+            data={macs}
+            renderItem={renderItem}
+            keyExtractor={item => item._id}
+          />
+        </View>
+      )}
+      {activeTab2 === 'Tab 1.2' && (
+        <View style={{ flex: 2 }}>
+            <FlatList
+            numColumns={2}
+            data={macs}
+            renderItem={renderItem}
+            keyExtractor={item => item._id}
+          />
+        </View>
+      )}
+      {activeTab2 === 'Tab 1.3' && (
+        <View style={{ flex: 2 }}>
+        </View>
+      )}
+      {activeTab2 === 'Tab 1.4' && (
+        <View style={{ flex: 2 }}>
+>>>>>>> Hoang_DEV
           <View style={{}}>
-            <Text>
-              macdisplays
-            </Text>
           </View>
         </View>
       )}
@@ -324,133 +429,5 @@ const Homepage = () => {
 
     </View>
   )
-}
-
+};
 export default Homepage
-
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#F0F0F0',
-
-//   },
-//   ViewHeader: {
-//     width: '100%',
-//     height: '10%',
-//     justifyContent: 'space-between',
-//     marginTop: '10%',
-//     flexDirection: 'row',
-//   },
-//   ViewImage2: {
-//     flexDirection: 'row',
-//     justifyContent: 'center',
-//     left: '-10%'
-//   },
-//   ViewImage1: {
-//     flexDirection: 'row',
-//     justifyContent: 'center',
-//     left: '5%'
-//   },
-//   tinyLogo: {
-//     left: '8.41%',
-//     right: '86.21%',
-
-//   },
-//   tinyLogo3: {
-//     left: 13,
-//     width: 37,
-//     height: 37,
-//   },
-//   tinyLogo2: {
-//     left: -13,
-//     width: 37,
-//     height: 37,
-//   },
-//   TextiStore: {
-//     width: 45,
-//     height: 15,
-//     left: 15,
-//     marginTop: '12%',
-//     fontFamily: 'Futura Md BT',
-//     fontStyle: 'normal',
-//     fontWeight: '800',
-//     fontsize: 17,
-//     lineHeight: 20,
-//     display: 'flex',
-//     alignItems: 'center',
-//   },
-//   logo2: {
-
-//     width: 386,
-//     height: 133,
-//     overflow: 'scroll',
-//   },
-//   backgourdlogo: {
-
-//     alignItems: 'center',
-//     overflow: 'scroll',
-//   },
-//   tabs: {
-//     flexDirection: 'row',
-//     marginBottom: 20,
-//     marginLeft: 20,
-
-
-//   },
-//   tab1: {
-//     padding: 10,
-
-//     marginRight: 10,
-//     borderRadius: 5,
-
-//   },
-//   tabText: {
-//     fontWeight: 'bold',
-//     color: '#333',
-
-//   },
-//   activeTab: {
-
-//   },
-//   tabContentText: {
-//   width:500,
-//   height:300,
-//   fontWeight: 'bold',
-//   backgroundColor: 'red'
-//   },
-
-// tabContentText2: {
-// width:500,
-// height:300,
-// fontWeight: 'bold',
-// backgroundColor: 'black'
-// },
-
-// tabContentText3: {
-// width:500,
-// height:300,
-// fontWeight: 'bold',
-// backgroundColor: 'green'
-// },
-
-// tabContentText4: {
-// width:500,
-// height:300,
-// fontWeight: 'bold',
-// backgroundColor: 'blue'
-// },
-// tabContentText5: {
-//   width:500,
-//   height:300,
-//   fontWeight: 'bold',
-//   backgroundColor: 'blue'
-//   },
-//   tabContent: {
-
-//   },
-//   tinyLogo5:{
-//     width:88,
-//     height:88
-//   }
-// });

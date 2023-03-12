@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   ViewImage1: {
     flexDirection: 'row',
     justifyContent: 'center',
-    left: '5%'
+    left: '5%',
   },
   tinyLogo: {
     left: '8.41%',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     height: 15,
     left: 15,
     marginTop: '12%',
-    fontFamily: 'Futura Md BT',
+    //fontFamily: 'Futura Md BT',
     fontStyle: 'normal',
     fontWeight: '800',
     fontsize: 17,
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginLeft: 1,
     height: 100,
+
   },
   tabs1: {
     flexDirection: 'row',
@@ -94,7 +95,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   activeTab: {
-    
+
+  },
+  custumTab:{
+    backgroundColor:'black',
+    color:'white'
   },
   tabContentText: {
     width: 500,
@@ -161,7 +166,7 @@ const styles = StyleSheet.create({
   textmac: {
     width: 51,
     height: 17,
-    fontSize: 'bold',
+    fontSize: '25',
     fontWeight: '800',
     fontSize: 12,
     lineHeight: 16,
@@ -190,14 +195,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-    gap:10,
+    gap: 10,
     position: 'absolute',
-    width:84,
-    height:34,
-    backgroundColor:"#FFFFFF",
-    borderRadius:25,
-    top:10,
-    marginLeft:10
+    width: 84,
+    height: 34,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 25,
+    top: 10,
+    marginLeft: 10
 
   },
   textmacdisplays: {
@@ -205,6 +210,52 @@ const styles = StyleSheet.create({
     height: 17,
     fontWeight: '800',
     fontSize: 11
+  },
+  item: {
+    top: 10,
+    width: 167,
+    height: 200,
+    marginHorizontal: 16,
+    marginVertical: 8,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    alignItems: 'center',
+
+  },
+  table: {
+    top: 40,
+    alignItems: 'center',
+  },
+  name: {
+    fontWeight: '500',
+    color: 'black',
+    fontSize: 17,
+    alignItems: 'center',
+  },
+  image: {
+    top: 25,
+    width: 120,
+    height: 68,
+  },
+  year: {
+    textAlign: 'center',
+    width: 60,
+    backgroundColor: '#F0F0F0',
+    borderRadius: 10,
+    fontSize: 14,
+    fontWeight: '500',
+    color: 'black',
+  },
+  Detail: {
+    padding: 5,
+    backgroundColor: '#242424',
+    borderRadius: 25,
+    color: 'white',
+    width: 150,
+    height: 34,
+    fontSize: 15,
+    textAlign: 'center',
+    fontWeight: '500',
   },
 
 });
