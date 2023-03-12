@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     marginLeft: 1,
     flex: 1,
     top: -20,
+
     // marginTop: -320,
 
   },
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginRight: -5,
     borderRadius: 5,
+
   },
   tab1: {
     padding: 10,
@@ -93,13 +95,13 @@ const styles = StyleSheet.create({
   },
   tabText1: {
     fontWeight: 'bold',
-  },
-  activeTab: {
 
   },
-  custumTab:{
-    backgroundColor:'black',
-    color:'white'
+  activeTab: {
+  },
+  custumTab: {
+    backgroundColor: 'black',
+    color: 'white'
   },
   tabContentText: {
     width: 500,
@@ -134,7 +136,6 @@ const styles = StyleSheet.create({
 
   },
   tabContent: {
-    backgroundColor: 'red',
   },
   tinyLogo5: {
     width: 88,
@@ -164,12 +165,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textmac: {
-    width: 51,
+    width: 60,
     height: 17,
     fontSize: '25',
-    fontWeight: '800',
+    fontWeight: 'bold',
     fontSize: 12,
     lineHeight: 16,
+    textAlign: 'center',
   },
   viewimac: {
     borderRadius: 25,
@@ -181,14 +183,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textimac: {
-    width: 27,
+    width: 60,
     height: 17,
-    fontSize: 'bold',
-    fontWeight: '800',
+    fontWeight: 'bold',
     fontSize: 12,
     lineHeight: 16,
-
+    textAlign: 'center',
   },
+  
   viewmacdisplays: {
     display: 'flex',
     flexDirection: 'row',
@@ -206,16 +208,17 @@ const styles = StyleSheet.create({
 
   },
   textmacdisplays: {
-    width: 74,
+    width: 80,
     height: 17,
-    fontWeight: '800',
-    fontSize: 11
+    fontWeight: 'bold',
+    fontSize: 11,
+    textAlign: 'center',
   },
   item: {
     top: 10,
-    width: 167,
-    height: 200,
-    marginHorizontal: 16,
+    width: 180,
+    height: 242,
+    marginHorizontal: 14,
     marginVertical: 8,
     backgroundColor: 'white',
     borderRadius: 20,
@@ -229,27 +232,32 @@ const styles = StyleSheet.create({
   name: {
     fontWeight: '500',
     color: 'black',
-    fontSize: 17,
+    fontSize: 16,
     alignItems: 'center',
+    textAlign: 'center',
+    lineHeight: 25,
   },
   image: {
     top: 25,
-    width: 120,
-    height: 68,
+    marginTop: -10,
+    width: 110,
+    height: 88,
   },
   year: {
     textAlign: 'center',
     width: 60,
-    backgroundColor: '#F0F0F0',
-    borderRadius: 10,
     fontSize: 14,
     fontWeight: '500',
     color: 'black',
+    lineHeight: 25,
+  },
+  year1: {
+    width: 60,
+    backgroundColor: '#F0F0F0',
+    borderRadius: 25,
   },
   Detail: {
     padding: 5,
-    backgroundColor: '#242424',
-    borderRadius: 25,
     color: 'white',
     width: 150,
     height: 34,
@@ -258,5 +266,13 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
 
+  Detail1:{
+    backgroundColor: '#242424',
+    borderRadius: 55,
+    color: 'white',
+    fontSize: 15,
+    textAlign: 'center',
+    fontWeight: '500',
+  },
 });
 export default styles;
