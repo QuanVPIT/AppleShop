@@ -20,8 +20,8 @@ export default function App() {
  <NavigationContainer>
  
     <Stack.Navigator options={{headerShown: false}}>
-    <Stack.Screen name="Homepage" component={Homepage} />
-    <Stack.Screen name="DetailProduct" component={DetailProduct} />
+    <Stack.Screen name="Home" component={Homepage} />
+    <Stack.Screen name="Home" component={Homepage} />
   </Stack.Navigator>
    
 </NavigationContainer>
