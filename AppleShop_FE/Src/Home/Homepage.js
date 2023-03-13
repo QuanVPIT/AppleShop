@@ -4,11 +4,14 @@ import styles from '../styles/styles';
 import { Image, ScrollView, TouchableOpacity, FlatList } from 'react-native';
 import axios from 'axios';
 import getConstant from '../../helper/Constanst';
+import DetailProduct from './DetailProduct';
 
-const Homepage = () => {
+const Homepage = ({navigation}) => {
+  const handlePress = (id) => {
+    navigation.navigate('DetailProduct',{id:id});
+  };
   const [activeTab, setActiveTab] = useState('Tab 1');
   const [activeTab2, setActiveTab2] = useState('Tab 1.1');
-
   const handleTabPress = (tabName) => {
 
     setActiveTab(tabName);
@@ -103,7 +106,9 @@ const Homepage = () => {
           </View>
           <Text style={styles.name}>{name}</Text>
           <View style={styles.Detail1}>
-            <Text style={styles.Detail}>Detail</Text>
+          <TouchableOpacity onPress={() => handlePress(item._id)}>
+          <Text style={styles.Detail}>Detail</Text>
+          </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -198,7 +203,7 @@ const Homepage = () => {
           <View style={styles.tabs1}>
             <TouchableOpacity
               style={[styles.tab1, activeTab === 'Tab 1.1' && styles.activeTab && styles.custumTab]}
-              onPress={() => handleTabPress1('Tab 1.1')}>
+              onPress={() => handleTabPress1('Tab 1.1')}  >
               <View style={styles.viewmac}>
                 <Text styles={styles.textmac}>MacBook</Text>
               </View>

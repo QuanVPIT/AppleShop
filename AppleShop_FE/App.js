@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Homepage from './Src/Home/Homepage';
 import TabView from './Src/Home/TabView';
+import DetailProduct from './Src/Home/DetailProduct';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -18,9 +19,9 @@ export default function App() {
   //   </View>
  <NavigationContainer>
  
-    <Stack.Navigator>
-    <Stack.Screen name="Home" component={Homepage} 
-    options={{headerShown: false}}/>
+    <Stack.Navigator options={{headerShown: false}}>
+    <Stack.Screen name="Homepage" component={Homepage} />
+    <Stack.Screen name="DetailProduct" component={DetailProduct} />
   </Stack.Navigator>
    
 </NavigationContainer>
