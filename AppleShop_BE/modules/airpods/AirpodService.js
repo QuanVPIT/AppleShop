@@ -1,5 +1,6 @@
 
-const airpodModel = require('./AirpodModel');
+// const macModel = require('./MacModel');
+const airpodModel = require('./AirpodModel')
 
 const get = async () => {
     //select * form products
@@ -10,35 +11,35 @@ const get = async () => {
 
 const getOne = async (id) => {
     //select * form products where id  = id
-    const airpod = await airpodModel.findById(id).populate('categoryId', '_id name'); //Object
+    const airpods = await airpodModel.findById(id).populate('categoryId', '_id name'); //Object
     //const product =await productModel.findone({_id: id, name:'Iphone12'}); //object
     // const product = await productModel.find({}).populate('categoryId', '_id name');
-
-    return airpod;
+    return airpods;
     
 }
 
 const create = async (name, image, year, categoryId) => {
         //insert into products (name, price, image, description, category_id) 
         //values (name, price, image, description, category_id)
-        const model = new airpodModel({name, image, year, categoryId});
+        const model = new airpodModel({ name, image, year, categoryId });
         await model.save();     
         return model;
 }
 
-const update = async (id, name, image, categoryId ) =>{
+const update = async (id, name, image, year, categoryId ) =>{
     //update products set name = name, price = price, image = image, description = description categoryId
     //where id = id
-    const airpod = await airpodModel.findById(id);
+    const airpods = await airpodModel.findById(id);
     const model = await airpodModel.findByIdAndUpdate(id,
-        {name, image: image ? image: airpod.image, year, categoryId});
+        {name, image: image ? image: mac.image, year, categoryId});
         return model;
 }
 
 const remove = async (id) => {
     //delete from products where id = id
-    await airpodModel.deleteOne({_id: id});
+    console.log(">>>>>>>>>");
+    await macModel.deleteOne({_id: id});
 }
 
 
-module.exports = { get, create, remove, getOne, update };
+module.exports = { get, create, getOne, update, remove };

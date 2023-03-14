@@ -43,7 +43,7 @@ const Homepage = ({navigation}) => {
   useEffect(() => {
     axios.get(`${getConstant().HOST}/san-pham1`)
       .then(function (response) {
-        console.log('response: ', response.data);
+        // console.log('response: ', response.data);
         setMacs(response.data);
       })
       .catch(function (error) {
@@ -54,7 +54,7 @@ const Homepage = ({navigation}) => {
   useEffect(() => {
     axios.get(`${getConstant().HOST}/san-pham2`)
       .then(function (response) {
-        console.log('response: ', response.data);
+        // console.log('response: ', response.data);
         setAirpods(response.data);
       })
       .catch(function (error) {
@@ -65,7 +65,7 @@ const Homepage = ({navigation}) => {
   useEffect(() => {
     axios.get(`${getConstant().HOST}/san-pham3`)
       .then(function (response) {
-        console.log('response: ', response.data);
+        // console.log('response: ', response.data);
         setIphones(response.data);
       })
       .catch(function (error) {
@@ -76,7 +76,7 @@ const Homepage = ({navigation}) => {
   useEffect(() => {
     axios.get(`${getConstant().HOST}/san-pham4`)
       .then(function (response) {
-        console.log('response: ', response.data);
+        // console.log('response: ', response.data);
         setIpads(response.data);
       })
       .catch(function (error) {
@@ -87,7 +87,7 @@ const Homepage = ({navigation}) => {
   useEffect(() => {
     axios.get(`${getConstant().HOST}/san-pham5`)
       .then(function (response) {
-        console.log('response: ', response.data);
+      //   console.log('response: ', response.data);
         setWatchs(response.data);
       })
       .catch(function (error) {
