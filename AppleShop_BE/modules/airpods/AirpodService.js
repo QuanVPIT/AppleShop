@@ -31,14 +31,14 @@ const update = async (id, name, image, year, categoryId ) =>{
     //where id = id
     const airpods = await airpodModel.findById(id);
     const model = await airpodModel.findByIdAndUpdate(id,
-        {name, image: image ? image: mac.image, year, categoryId});
+        {name, image: image ? image: airpod.image, year, categoryId});
         return model;
 }
 
 const remove = async (id) => {
     //delete from products where id = id
     console.log(">>>>>>>>>");
-    await macModel.deleteOne({_id: id});
+    await airpodModel.deleteOne({_id: id});
 }
 
 
