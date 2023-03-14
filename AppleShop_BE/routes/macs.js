@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const AirpodController = require('../modules/airpods/AirpodController');
+const MacController = require('../modules/macs/MacController');
 const CategoryController = require('../modules/categories/CategoryController');
 const middleware = require('../middleware/upload');
 const getConstant = require('../helper/constanst').getConstant;
@@ -10,11 +10,11 @@ const getConstant = require('../helper/constanst').getConstant;
 // /** 
 //  * WEB
 //  * Hiển thị trang danh sách sản phẩm 
-//  * http://localhost:3000/san-pham2/
+//  * http://localhost:3000/san-pham1/
 //  */
 // router.get('/', async function (req, res, next) {
-//   let airpods = await AirpodController.get();
-//   airpods = airpods.map((p, index) => {
+//   let macs = await MacController.get();
+//   macs = macs.map((p, index) => {
 //     return {
 //       _id: p._id,
 //       name: p.name,
@@ -24,20 +24,20 @@ const getConstant = require('../helper/constanst').getConstant;
 //       index: index + 1,
 //     }
 //   });
-//   console.log(airpods);
-//   res.render('airpods/san-pham2', { sp: airpods });
-//   //res.status(200).json(airpods);
+//   console.log(macs);
+//   res.render('macs/san-pham1', { sp: macs });
+//   //res.status(200).json(macs);
 // });
 
 // /**
 //  * xóa sản phẩm
 //  */
-// //http://localhost:3000:/san-pham2/:id
+// //http://localhost:3000:/san-pham1/:id
 // router.delete('/:id', async function (req, res, next) {
 //   console.log(">>>>>>");
 //   try {
 //     let { id } = req.params;
-//     await AirpodController.remove(id);
+//     await MacController.remove(id);
 //     res.json({ status: true });
 //   } catch (error) {
 //     res.json({ status: false });
@@ -46,22 +46,22 @@ const getConstant = require('../helper/constanst').getConstant;
 
 // /**
 //  * Hiển thị trang chi tiết sản phẩm 
-//  * http://localhost:3000/san-pham2/:id/detail
+//  * http://localhost:3000/:id/detail
 //  */
 // router.get('/:id/detail', async function (req, res, next) {
 //   try {
 //     let { id } = req.params;
-//     const airpod = await AirpodController.getOne(id);
+//     const mac = await MacController.getOne(id);
 //     let categories = await CategoryController.get();
 //     categories = categories.map((p, index) => {
 //       return {
 //         _id: p._id,
 //         name: p.name,
-//         isSelected: p._id.toString() == airpod.categoryId._id.toString(),
+//         isSelected: p._id.toString() == mac.categoryId._id.toString(),
 //       }
 //     });
-//     res.render('airpods/chinh-sua2', { airpod, categories });
-//     //res.status(200).json({ airpod, categories });
+//     res.render('macs/chinh-sua1', { mac, categories });
+//     //res.status(200).json({ mac, categories });
 //   } catch (error) {
 //     next(error);
 //   }
@@ -69,7 +69,7 @@ const getConstant = require('../helper/constanst').getConstant;
 
 // /**
 //  * Hiển thị cập nhật sản phẩm
-//  * https://localhost:3000/san-pham2/:id/detail
+//  * https://localhost:3000/san-pham1/:id/detail
 //  */
 // router.post('/:id/detail', [middleware.single('image'),], async function (req, res, next) {
 //   try {
@@ -78,9 +78,9 @@ const getConstant = require('../helper/constanst').getConstant;
 //     let { id } = req.params;
 //     image = file ? file.filename : '';
 //     image = image ? `${getConstant().HOST}/images/${image}` : '';
-//     await AirpodController.update(id, name, image, year, categoryId);
-//     res.redirect('/san-pham2');
-//     //res.status(200).json(airpods);
+//     await MacController.update(id, name, image, year, categoryId);
+//     res.redirect('/san-pham1');
+//     //res.status(200).json(macs);
 //   } catch (error) {
 //     console.log(error);
 //     next(error);
@@ -90,24 +90,24 @@ const getConstant = require('../helper/constanst').getConstant;
 
 /* GET home page. */
 /*Hiển thị trang tạo mới sản phẩm*/
-//http://localhost:3000/san-pham2/tao-moi2
-router.get('/tao-moi2', async function (req, res, next) {
+//http://localhost:3000/san-pham1/tao-moi1
+router.get('/tao-moi1', async function (req, res, next) {
   const categories = await CategoryController.get();
-  res.render('airpods/tao-moi2', { categories });
+  res.render('macs/tao-moi1', { categories });
 });
 
 /**
  * Lưu tạo mới sản phẩm
- * http://localhost:3000/san-pham2/tao-moi2
+ * http://localhost:3000/san-pham1/tao-moi1
  */
-router.post('/tao-moi2', [middleware.single('image'),], async function (req, res, next) {
+router.post('/tao-moi1', [middleware.single('image'),], async function (req, res, next) {
   try {
     let { file } = req;
     let { name, image, year, categoryId } = req.body;
     image = file ? file.filename : '';
     image = image ? `${getConstant().HOST}/images/${image}` : '';
-    await AirpodController.create(name, image, year, categoryId);
-    res.redirect('/san-pham2');
+    await MacController.create(name, image, year, categoryId);
+    res.redirect('/san-pham1');
   } catch (error) {
     console.log(error);
     next(error);
@@ -116,16 +116,15 @@ router.post('/tao-moi2', [middleware.single('image'),], async function (req, res
 
 
 
-/*API MOBILE */
 
 /** 
- * 
+ * API MOBILE
  * Hiển thị trang danh sách sản phẩm 
- * http://localhost:3000/san-pham2/
+ * http://localhost:3000/san-pham1/
  */
 router.get('/', async function (req, res, next) {
-  let airpods = await AirpodController.get();
-  airpods = airpods.map((p, index) => {
+  let macs = await MacController.get();
+  macs = macs.map((p, index) => {
     return {
       _id: p._id,
       name: p.name,
@@ -135,20 +134,20 @@ router.get('/', async function (req, res, next) {
       index: index + 1,
     }
   });
-  console.log(airpods);
-  //res.render('airpods/san-pham2', { sp: airpods });
-  res.status(200).json(airpods);
+  console.log(macs);
+  //res.render('macs/san-pham1', { sp:macs });
+  res.status(200).json(macs);
 });
 
 /**
- * xóa sản phẩm
- */
-//http://localhost:3000:/san-pham2/:id
+* xóa sản phẩm
+*/
+//http://localhost:3000:/san-pham1/:id
 router.delete('/:id', async function (req, res, next) {
   console.log(">>>>>>");
   try {
     let { id } = req.params;
-    await AirpodController.remove(id);
+    await MacController.remove(id);
     res.json({ status: true });
   } catch (error) {
     res.json({ status: false });
@@ -156,32 +155,53 @@ router.delete('/:id', async function (req, res, next) {
 });
 
 /**
- * Hiển thị trang chi tiết sản phẩm 
- * http://localhost:3000/san-pham2/:id/detail
- */
-router.get('/:id/detail', async function (req, res, next) {
-  try {
+* Hiển thị trang chi tiết sản phẩm 
+* http://localhost:3000/san-pham1/:id/detail
+*/
+
+router.get('/:id/detail', async function(req, res, next) {
+  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>"); 
+  try{
     let { id } = req.params;
-    const airpod = await AirpodController.getOne(id);
+    const mac = await MacController.getOne(id);
     let categories = await CategoryController.get();
     categories = categories.map((p, index) => {
       return {
         _id: p._id,
         name: p.name,
-        isSelected: p._id.toString() == airpod.categoryId._id.toString(),
+        isSelected: p._id.toString() == mac.categoryId._id.toString(),
       }
-    });
-    //res.render('airpods/chinh-sua2', { airpod, categories });
-    res.status(200).json({ airpod, categories });
-  } catch (error) {
+    });;
+    res.status(200).json({ mac, categories });
+  }catch(error){
     next(error);
   }
 });
 
+
+// router.get('/:id/detail', async function (req, res, next) {
+//   try {
+//     let { id } = req.params;
+//     const mac = await MacController.getOne(id);
+//     let categories = await CategoryController.get();
+//     categories = categories.map((p, index) => {
+//       return {
+//         _id: p._id,
+//         name: p.name,
+//         isSelected: p._id.toString() == mac.categoryId._id.toString(),
+//       }
+//     });
+//     //res.render('macs/chinh-sua1', { mac, categories });
+//     res.status(200).json({ mac, categories });
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
 /**
- * Hiển thị cập nhật sản phẩm
- * https://localhost:3000/san-pham2/:id/detail
- */
+* Hiển thị cập nhật sản phẩm
+* https://localhost:3000/san-pham1/:id/detail
+*/
 router.post('/:id/detail', [middleware.single('image'),], async function (req, res, next) {
   try {
     let { file } = req;
@@ -189,12 +209,15 @@ router.post('/:id/detail', [middleware.single('image'),], async function (req, r
     let { id } = req.params;
     image = file ? file.filename : '';
     image = image ? `${getConstant().HOST}/images/${image}` : '';
-    await AirpodController.update(id, name, image, year, categoryId);
-    //res.redirect('/san-pham2');
-    res.status(200).json(airpods);
+    await MacController.update(id, name, image, year, categoryId);
+    //res.redirect('/san-pham1');
+    res.status(200).json(macs);
   } catch (error) {
     console.log(error);
     next(error);
   }
 });
+
+
+
 module.exports = router;
