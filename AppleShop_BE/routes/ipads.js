@@ -87,32 +87,32 @@ const getConstant = require('../helper/constanst').getConstant;
 // });
 
 
-// /* GET home page. */
-// /*Hiển thị trang tạo mới sản phẩm*/
-// //http://localhost:3000/san-pham4/tao-moi4
-// router.get('/tao-moi4', async function (req, res, next) {
-//   const categories = await CategoryController.get();
-//   res.render('ipads/tao-moi4', { categories });
-// });
+/* GET home page. */
+/*Hiển thị trang tạo mới sản phẩm*/
+//http://localhost:3000/san-pham4/tao-moi4
+router.get('/tao-moi4', async function (req, res, next) {
+  const categories = await CategoryController.get();
+  res.render('ipads/tao-moi4', { categories });
+});
 
 
-// /**
-// * Lưu tạo mới sản phẩm
-// * http://localhost:3000/san-pham4/tao-moi4
-// */
-// router.post('/tao-moi4', [middleware.single('image'),], async function (req, res, next) {
-//   try {
-//     let { file } = req;
-//     let { name, image, year, categoryId } = req.body;
-//     image = file ? file.filename : '';
-//     image = image ? `${getConstant().HOST}/images/${image}` : '';
-//     await IpadController.create(name, image, year, categoryId);
-//     res.redirect('/san-pham4');
-//   } catch (error) {
-//     console.log(error);
-//     next(error);
-//   }
-// });
+/**
+* Lưu tạo mới sản phẩm
+* http://localhost:3000/san-pham4/tao-moi4
+*/
+router.post('/tao-moi4', [middleware.single('image'),], async function (req, res, next) {
+  try {
+    let { file } = req;
+    let { name, image, year, categoryId } = req.body;
+    image = file ? file.filename : '';
+    image = image ? `${getConstant().HOST}/images/${image}` : '';
+    await IpadController.create(name, image, year, categoryId);
+    res.redirect('/san-pham4');
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
 
 
 

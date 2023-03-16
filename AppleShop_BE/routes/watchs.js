@@ -87,31 +87,33 @@ const getConstant = require('../helper/constanst').getConstant;
 // });
 
 
-// /* GET home page. */
-// /*Hiển thị trang tạo mới sản phẩm*/
-// //http://localhost:3000/san-pham5/tao-moi5
-// router.get('/tao-moi5', async function (req, res, next) {
-//     const categories = await CategoryController.get();
-//     res.render('watchs/tao-moi5', { categories });
-// });
+/* GET home page. */
+/*Hiển thị trang tạo mới sản phẩm*/
+//http://localhost:3000/san-pham5/tao-moi5
+router.get('/tao-moi5', async function (req, res, next) {
+    const categories = await CategoryController.get();
+    res.render('watchs/tao-moi5', { categories });
+});
 
-// /**
-//  * Lưu tạo mới sản phẩm
-//  * http://localhost:3000/san-pham5/tao-moi5
-//  */
-// router.post('/tao-moi5', [middleware.single('image'),], async function (req, res, next) {
-//     try {
-//         let { file } = req;
-//         let { name, image, year, categoryId } = req.body;
-//         image = file ? file.filename : '';
-//         image = image ? `${getConstant().HOST}/images/${image}` : '';
-//         await WatchController.create(name, image, year, categoryId);
-//         res.redirect('/san-pham5');
-//     } catch (error) {
-//         console.log(error);
-//         next(error);
-//     }
-// });
+/**
+ * Lưu tạo mới sản phẩm
+ * http://localhost:3000/san-pham5/tao-moi5
+ */
+router.post('/tao-moi5', [middleware.single('image'),], async function (req, res, next) {
+    try {
+        let { file } = req;
+        let { name, image, year, categoryId } = req.body;
+        image = file ? file.filename : '';
+        image = image ? `${getConstant().HOST}/images/${image}` : '';
+        await WatchController.create(name, image, year, categoryId);
+        res.redirect('/san-pham5');
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
+
 
 
 /** 

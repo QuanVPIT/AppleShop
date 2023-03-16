@@ -9,7 +9,7 @@ require('./modules/users/UserModel');
 
 require('./modules/categories/CategoryModel');
 
-require('./modules/mac/MacModel');
+require('./modules/macs/MacModel');
 
 require('./modules/airpods/AirpodModel');
 
@@ -19,11 +19,10 @@ require('./modules/iphones/IphoneModel');
 
 require('./modules/watchs/WatchModel');
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var macsRouter = require('./routes/mac');
-var airpodsRouter = require('./routes/airpods');
+var macsRouter = require('./routes/macs');
+var airpodsRouter = require('./routes/airpods')
 var iphonesRouter = require('./routes/iphones');
 var ipadsRouter = require('./routes/ipads');
 var watchsRouter = require('./routes/watchs');

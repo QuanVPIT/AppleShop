@@ -6,6 +6,8 @@ const CategoryController = require('../modules/categories/CategoryController');
 const middleware = require('../middleware/upload');
 const getConstant = require('../helper/constanst').getConstant;
 
+
+
 // /** 
 //  * WEB
 //  * Hiển thị trang danh sách sản phẩm 
@@ -86,31 +88,31 @@ const getConstant = require('../helper/constanst').getConstant;
 // });
 
 
-// /* GET home page. */
-// /*Hiển thị trang tạo mới sản phẩm*/
-// //http://localhost:3000/san-pham3/tao-moi3
-// router.get('/tao-moi3', async function (req, res, next) {
-//     const categories = await CategoryController.get();
-//     res.render('iphones/tao-moi3', { categories });
-// });
+/* GET home page. */
+/*Hiển thị trang tạo mới sản phẩm*/
+//http://localhost:3000/san-pham3/tao-moi3
+router.get('/tao-moi3', async function (req, res, next) {
+    const categories = await CategoryController.get();
+    res.render('iphones/tao-moi3', { categories });
+});
 
-// /**
-//  * Lưu tạo mới sản phẩm
-//  * http://localhost:3000/san-pham3/tao-moi3
-//  */
-// router.post('/tao-moi3', [middleware.single('image'),], async function (req, res, next) {
-//     try {
-//         let { file } = req;
-//         let { name, image, year, categoryId } = req.body;
-//         image = file ? file.filename : '';
-//         image = image ? `${getConstant().HOST}/images/${image}` : '';
-//         await IphoneController.create(name, image, year, categoryId);
-//         res.redirect('/san-pham3');
-//     } catch (error) {
-//         console.log(error);
-//         next(error);
-//     }
-// });
+/**
+ * Lưu tạo mới sản phẩm
+ * http://localhost:3000/san-pham3/tao-moi3
+ */
+router.post('/tao-moi3', [middleware.single('image'),], async function (req, res, next) {
+    try {
+        let { file } = req;
+        let { name, image, year, categoryId } = req.body;
+        image = file ? file.filename : '';
+        image = image ? `${getConstant().HOST}/images/${image}` : '';
+        await IphoneController.create(name, image, year, categoryId);
+        res.redirect('/san-pham3');
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
 
 
 

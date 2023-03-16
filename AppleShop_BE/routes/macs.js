@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const MacController = require('../modules/mac/MacController');
+const MacController = require('../modules/macs/MacController');
 const CategoryController = require('../modules/categories/CategoryController');
 const middleware = require('../middleware/upload');
 const getConstant = require('../helper/constanst').getConstant;
@@ -88,31 +88,31 @@ const getConstant = require('../helper/constanst').getConstant;
 // });
 
 
-// /* GET home page. */
-// /*Hiển thị trang tạo mới sản phẩm*/
-// //http://localhost:3000/san-pham1/tao-moi1
-// router.get('/tao-moi1', async function (req, res, next) {
-//   const categories = await CategoryController.get();
-//   res.render('macs/tao-moi1', { categories });
-// });
+/* GET home page. */
+/*Hiển thị trang tạo mới sản phẩm*/
+//http://localhost:3000/san-pham1/tao-moi1
+router.get('/tao-moi1', async function (req, res, next) {
+  const categories = await CategoryController.get();
+  res.render('macs/tao-moi1', { categories });
+});
 
-// /**
-//  * Lưu tạo mới sản phẩm
-//  * http://localhost:3000/san-pham1/tao-moi1
-//  */
-// router.post('/tao-moi1', [middleware.single('image'),], async function (req, res, next) {
-//   try {
-//     let { file } = req;
-//     let { name, image, year, categoryId } = req.body;
-//     image = file ? file.filename : '';
-//     image = image ? `${getConstant().HOST}/images/${image}` : '';
-//     await MacController.create(name, image, year, categoryId);
-//     res.redirect('/san-pham1');
-//   } catch (error) {
-//     console.log(error);
-//     next(error);
-//   }
-// });
+/**
+ * Lưu tạo mới sản phẩm
+ * http://localhost:3000/san-pham1/tao-moi1
+ */
+router.post('/tao-moi1', [middleware.single('image'),], async function (req, res, next) {
+  try {
+    let { file } = req;
+    let { name, image, year, categoryId } = req.body;
+    image = file ? file.filename : '';
+    image = image ? `${getConstant().HOST}/images/${image}` : '';
+    await MacController.create(name, image, year, categoryId);
+    res.redirect('/san-pham1');
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
 
 
 
@@ -156,10 +156,12 @@ router.delete('/:id', async function (req, res, next) {
 
 /**
 * Hiển thị trang chi tiết sản phẩm 
-* http://localhost:3000/:id/detail
+* http://localhost:3000/san-pham1/:id/detail
 */
-router.get('/:id/detail', async function (req, res, next) {
-  try {
+
+router.get('/:id/detail', async function(req, res, next) {
+  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>"); 
+  try{
     let { id } = req.params;
     const mac = await MacController.getOne(id);
     let categories = await CategoryController.get();
@@ -169,13 +171,32 @@ router.get('/:id/detail', async function (req, res, next) {
         name: p.name,
         isSelected: p._id.toString() == mac.categoryId._id.toString(),
       }
-    });
-    //res.render('macs/chinh-sua1', { mac, categories });
+    });;
     res.status(200).json({ mac, categories });
-  } catch (error) {
+  }catch(error){
     next(error);
   }
 });
+
+
+// router.get('/:id/detail', async function (req, res, next) {
+//   try {
+//     let { id } = req.params;
+//     const mac = await MacController.getOne(id);
+//     let categories = await CategoryController.get();
+//     categories = categories.map((p, index) => {
+//       return {
+//         _id: p._id,
+//         name: p.name,
+//         isSelected: p._id.toString() == mac.categoryId._id.toString(),
+//       }
+//     });
+//     //res.render('macs/chinh-sua1', { mac, categories });
+//     res.status(200).json({ mac, categories });
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 /**
 * Hiển thị cập nhật sản phẩm
@@ -198,30 +219,5 @@ router.post('/:id/detail', [middleware.single('image'),], async function (req, r
 });
 
 
-/* GET home page. */
-/*Hiển thị trang tạo mới sản phẩm*/
-//http://localhost:3000/san-pham1/tao-moi1
-router.get('/tao-moi1', async function (req, res, next) {
-  const categories = await CategoryController.get();
-  res.render('macs/tao-moi1', { categories });
-});
-
-/**
-* Lưu tạo mới sản phẩm
-* http://localhost:3000/san-pham1/tao-moi1
-*/
-router.post('/tao-moi1', [middleware.single('image'),], async function (req, res, next) {
-  try {
-    let { file } = req;
-    let { name, image, year, categoryId } = req.body;
-    image = file ? file.filename : '';
-    image = image ? `${getConstant().HOST}/images/${image}` : '';
-    await MacController.create(name, image, year, categoryId);
-    res.redirect('/san-pham1');
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-});
 
 module.exports = router;
