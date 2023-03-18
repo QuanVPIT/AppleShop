@@ -1,14 +1,16 @@
 <form method="post" action="/san-pham1/tao-moi1" enctype="multipart/form-data">
     <input type="text" name="name" id="name" placeholder="Nhập sản phẩm" /> <br />
+    <input type="text" name="param" id="param" placeholder="Nhập thông số" /> <br />
     <input type="number" name="year" id="year" placeholder="Năm sản xuất" /> <br />
+    <input type="number" name="price" id="price" placeholder="Giá" /> <br />
     <input type="file" name="image" id="image" onchange="loadFile(event);" /> <br />
     <img width="250" height="250" id="img-display" alt="Image" src="{{mac.image}}"><br />
     <select name="categoryId">
         {{#each categories}}
         <option value="{{this._id}}">{{this.name}}</option>
         {{/each}}
-    </select> <br/>
-    <input type="submit" value="Tạo mới"/>  <br/>
+    </select> <br />
+    <input type="submit" value="Tạo mới" /> <br />
 </form>
 
 <script>

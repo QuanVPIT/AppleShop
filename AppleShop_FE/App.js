@@ -2,10 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Homepage from './Src/Home/Homepage';
-import TabView from './Src/Home/TabView';
-import DetailProduct from './Src/Home/DetailProduct';
-const Stack = createStackNavigator();
+import { MainStackNavigator } from './Src/Navigation/MainStackNavigator';
+
+
+// const Stack = createStackNavigator();
 
 export default function App() {
   return (
@@ -17,14 +17,15 @@ export default function App() {
   //     <StatusBar style="auto" />
   //     </NavigationContainer>
   //   </View>
- <NavigationContainer>
-    <Stack.Navigator options={{headerShown: false}}>
-    <Stack.Screen name="Home" component={Homepage} />
-    <Stack.Screen name="DetailProduct" component={DetailProduct} />
-  </Stack.Navigator>
-   
-</NavigationContainer>
-
+//  <NavigationContainer>
+//     <Stack.Navigator options={{headerShown: false}}>
+//     <Stack.Screen name="Home" component={Homepage} />
+//     <Stack.Screen name="DetailProduct" component={DetailProduct} />
+//   </Stack.Navigator>
+// </NavigationContainer>
+    <NavigationContainer>
+       <MainStackNavigator />
+    </NavigationContainer>
   );
 }
 

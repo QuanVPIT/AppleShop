@@ -1,6 +1,8 @@
 <form method="post" action="/san-pham5/{{watch._id}}/detail" enctype="multipart/form-data">
     <input type="text" name="name" value="{{watch.name}}" placeholder="Nhập sản phẩm" /> <br />
+    <input type="text" name="param" value="{{watch.param}}" placeholder="Nhập thông số"/> <br />
     <input type="text" name="year" value="{{watch.year}}" placeholder="Năm sản xuất" /> <br />
+    <input type="text" name="price" value="{{watch.price}}" placeholder="Giá" /> <br />
     <input type="file" name="image" value="{{watch.image}}" onchange="loadFile(event);" /> <br />
     <img width="250" height="250" id="img-display" alt="Image" src="{{watch.image}}"><br />
     <select name="categoryId">

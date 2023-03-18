@@ -11,9 +11,9 @@ const get = async() =>{
     }
 }
 
-const create = async(name, image, year, categoryId) =>{
+const create = async(name, param, image, price, year, categoryId) =>{
     try{
-        const airpod = await airpodService.create(name, image, year, categoryId);
+        const airpod = await airpodService.create(name, param, image, price, year, categoryId);
         return airpod;
     }catch(error){
         console.log(error);
@@ -30,9 +30,9 @@ const getOne = async(id) => {
     }
 }    
   
-const update = async (id, name, image, year, categoryId) => {
+const update = async (id, name, param, image, price, year, categoryId) => {
     try{
-        const airpod = await airpodService.update(id, name, image, year, categoryId);
+        const airpod = await airpodService.update(id, name, param, image, price, year, categoryId);
         return airpod;
     }catch(error){
         console.log(error);

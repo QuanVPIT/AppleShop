@@ -1,20 +1,16 @@
-import {
-  View,
-  Text,
-  Dimensions,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import {View,Text,Dimensions, StyleSheet,Image,TouchableOpacity, ScrollView} from "react-native";
 import React, { useEffect, useState } from "react";
 import { ListItem } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import axios from "axios";
 import getConstant from "../../helper/Constanst";
+import stylesDetail from "../styles/stylesDetail";
 
 const DetailProduct = ({ navigation, route }) => {
   const [name, setName] = useState("");
+  const [param, setparam] = useState("");
   const [year, setyear] = useState("");
+  const [price, setPrice] = useState("");
   const [image, setimage] = useState("");
 
   const { id } = route.params;
@@ -25,35 +21,45 @@ const DetailProduct = ({ navigation, route }) => {
     axios
       .get(`${getConstant().HOST}/san-pham1/${id}/detail`)
       .then(function (response) {
+       
         setName(response.data.mac.name);
+        setparam(response.data.mac.param)
         setyear(response.data.mac.year);
+        setPrice(response.data.mac.price);
         setimage(response.data.mac.image);
-        console.log("Name - Year - Image", name, year, image);
+        console.log("Name - Price -Year - Price - Image ", name, param, year, price, image);
       })
       .catch(function (error) {
         console.log("error: ", error);
       });
   }, []);
-   const [airpods, setAirpods] = useState([]);
+  const [airpods, setAirpods] = useState([]);
   useEffect(() => {
-    axios.get(`${getConstant().HOST}/san-pham2`)
+    axios
+      .get(`${getConstant().HOST}/san-pham2/${id}/detail`)
       .then(function (response) {
-        // console.log('response: ', response.data);
-        setAirpods(response.data);
+        setName(response.data.airpod.name);
+        setparam(response.data.airpod.param);
+        setyear(response.data.airpod.year);
+        setPrice(response.data.airpod.price);
+        setimage(response.data.airpod.image);
+        console.log("Name - Param - Year - Price - Image", name, param, year, price, image);
       })
       .catch(function (error) {
-        console.log('error: ', error);
+        console.log("error: ", error);
       });
   }, []);
   const [iphones, setIphones] = useState([]);
   useEffect(() => {
     axios
-      .get(`${getConstant().HOST}/san-pham3/${id}/detail`)
+    .get(`${getConstant().HOST}/san-pham3/${id}/detail`)
       .then(function (response) {
         setName(response.data.iphone.name);
+        setparam(response.data.iphone.param);
         setyear(response.data.iphone.year);
+        setPrice(response.data.iphone.price);
         setimage(response.data.iphone.image);
-        console.log("Name - Year - Image", name, year, image);
+        console.log("Name - Param - Year - Price - Image", name, param, year, price, image);
       })
       .catch(function (error) {
         console.log("error: ", error);
@@ -61,88 +67,100 @@ const DetailProduct = ({ navigation, route }) => {
   }, []);
   const [ipads, setIpads] = useState([]);
   useEffect(() => {
-    axios.get(`${getConstant().HOST}/san-pham4`)
+    axios
+    .get(`${getConstant().HOST}/san-pham4/${id}/detail`)
       .then(function (response) {
-        // console.log('response: ', response.data);
-        setIpads(response.data);
+        setName(response.data.ipad.name);
+        setparam(response.data.ipad.param);
+        setyear(response.data.ipad.year);
+        setPrice(response.data.ipad.price);
+        setimage(response.data.ipad.image);
+        console.log("Name - Param - Year - Image", name, param, year, price, image);
       })
       .catch(function (error) {
-        console.log('error: ', error);
+        console.log("error: ", error);
       });
   }, []);
   const [watchs, setWatchs] = useState([]);
   useEffect(() => {
-    axios.get(`${getConstant().HOST}/san-pham5`)
+    axios
+    .get(`${getConstant().HOST}/san-pham5/${id}/detail`)
       .then(function (response) {
-      //   console.log('response: ', response.data);
-        setWatchs(response.data);
+        setName(response.data.watch.name);
+        setparam(response.data.watch.param);
+        setyear(response.data.watch.year);
+        setPrice(response.data.watch.price);
+        setimage(response.data.watch.image);
+        console.log("Name - Param - Year - Price - Image", name, param, year, price, image);
       })
       .catch(function (error) {
-        console.log('error: ', error);
+        console.log("error: ", error);
       });
   }, []);
   return (
-    <View style={styles.container}>
+    <View style={stylesDetail.container}>
       <View>
-        <View style={styles.circle}>
+        <View style={stylesDetail.circle}>
           <Image
-            style={styles.imgProduct}
-            source={{ uri: image }}
+            style={stylesDetail.imgProduct}
+            source={{ uri:image }}
             resizeMode={"cover"}
           />
         </View>
       </View>
-      <View style={styles.menuProduct}>
-        <View style={styles.nameDateProduct}>
-          <Text style={styles.nameProduct}>{name}</Text>
-          <Text style={styles.dateProduct}>{year}</Text>
+      <View style={stylesDetail.menuProduct}>
+        <View style={stylesDetail.nameDateProduct}>
+          <Text style={stylesDetail.nameProduct}>{name}</Text>
+          <Text style={stylesDetail.nameProduct}>{param}
+           <Text style={stylesDetail.dateProduct}>  {year}</Text>
+          </Text>
         </View>
-        <Text style={styles.priceProduct}>USD 999$</Text>
-        <Text style={styles.colorName}>COLOR:</Text>
-        <View style={styles.colorProduct}>
-          <TouchableOpacity style={styles.SP}>
-            <View style={styles.detailSP1}></View>
-            <Text style={styles.nameSP}>Gold</Text>
+        <Text style={stylesDetail.priceProduct}>{price}</Text>
+        <Text style={stylesDetail.colorName}>COLOR:</Text>
+        <View style={stylesDetail.colorProduct}>
+          <TouchableOpacity style={stylesDetail.SP}>
+            <View style={stylesDetail.detailSP1}></View>
+            <Text style={stylesDetail.nameSP}>Gold</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.SP}>
-            <View style={styles.detailSP2}></View>
-            <Text style={styles.nameSP}>Sliver</Text>
+          <TouchableOpacity style={stylesDetail.SP}>
+            <View style={stylesDetail.detailSP2}></View>
+            <Text style={stylesDetail.nameSP}>Sliver</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.SP}>
-            <View style={styles.detailSP3}></View>
-            <Text style={styles.nameSP}>Grey</Text>
-          </TouchableOpacity>
-        </View>
-        <Text style={styles.colorName}>Memory:</Text>
-        <View style={styles.colorProduct}>
-          <TouchableOpacity style={styles.SP}>
-            <Text style={styles.nameSP}>215GB</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SP}>
-            <Text style={styles.nameSP}>512GB</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SP}>
-            <Text style={styles.nameSP}>1TB</Text>
+          <TouchableOpacity style={stylesDetail.SP}>
+            <View style={stylesDetail.detailSP3}></View>
+            <Text style={stylesDetail.nameSP}>Grey</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.buttonProduct}>
-          <View style={styles.buttonSP}>
-            <TouchableOpacity style={styles.buttonDown} activeOpacity={0.5}>
+        <Text style={stylesDetail.colorName}>Memory:</Text>
+        <View style={stylesDetail.colorProduct}>
+          <TouchableOpacity style={stylesDetail.SP}>
+            <Text style={stylesDetail.nameSP}>215GB</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={stylesDetail.SP}>
+            <Text style={stylesDetail.nameSP}>512GB</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={stylesDetail.SP}>
+            <Text style={stylesDetail.nameSP}>1TB</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={stylesDetail.buttonProduct}>
+          <View style={stylesDetail.buttonSP}>
+            <TouchableOpacity style={stylesDetail.buttonDown} activeOpacity={0.5}>
               <Image
                 source={require("../../assets/Group86.png")}
-                style={styles.buttonDown}
+                style={stylesDetail.buttonDown}
               />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonUp} activeOpacity={0.5}>
+            <Text>1</Text>
+            <TouchableOpacity style={stylesDetail.buttonUp} activeOpacity={0.5}>
               <Image
                 source={require("../../assets/Group87.png")}
-                style={styles.buttonDown}
+                style={stylesDetail.buttonDown}
               />
             </TouchableOpacity>
           </View>
-
-          <TouchableOpacity style={styles.buttonBuy} activeOpacity={0.5}>
-            <Text style={styles.textBuy}>Payment</Text>
+          <TouchableOpacity style={stylesDetail.buttonBuy} activeOpacity={0.5}>
+            <Text style={stylesDetail.textBuy}>Payment</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -152,138 +170,4 @@ const DetailProduct = ({ navigation, route }) => {
 
 export default DetailProduct;
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#F0F0F0",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  circle: {
-    borderRadius: 150,
-    width: 300,
-    height: 300,
-    marginTop: 50,
-    backgroundColor: "#E5E5E6",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  imgProduct: {
-    width: 210,
-    height: 150,
-    backgroundColor: "#E5E5E6",
-  },
-  menuProduct: {
-    height: 400,
-    width: 400,
-    margin: 10,
-    padding: 20,
-    backgroundColor: "#FFFFFF",
-    borderRadius: 35,
-  },
-  nameDateProduct: {
-    flexDirection: "row",
-  },
-  nameProduct: {
-    // fontFamily: 'Poppins',
-    color: "#00000",
-    fontWeight: "bold",
-    fontSize: 29,
-  },
-  dateProduct: {
-    marginTop: 15,
-  },
-  priceProduct: {
-    // fontFamily: 'Poppins',
-    color: "#7893F4",
-    fontSize: 21,
-  },
-  colorName: {
-    padding: 2,
-    margin: 2,
-    fontWeight: "bold",
-  },
-  colorProduct: {
-    flexDirection: "row",
-    padding: 2,
-  },
-  SP: {
-    backgroundColor: "#F0F0F0",
-    width: 100,
-    height: 40,
-    borderRadius: 20,
-    padding: 10,
-    margin: 5,
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-  nameSP: {},
-  detailSP1: {
-    backgroundColor: "#D4A490",
-    width: 20,
-    height: 20,
-    borderRadius: 20,
-    marginRight: 10,
-  },
-  detailSP2: {
-    backgroundColor: "#AEAFB4",
-    width: 20,
-    height: 20,
-    borderRadius: 20,
-    marginRight: 10,
-  },
-  detailSP3: {
-    backgroundColor: "#646464",
-    width: 20,
-    height: 20,
-    borderRadius: 20,
-    marginRight: 10,
-  },
-  buttonProduct: {
-    flexDirection: "row",
-    padding: 2,
-  },
-  buttonSP: {
-    flexDirection: "row",
-    backgroundColor: "#F0F0F0",
-    width: 120,
-    height: 40,
-    borderRadius: 30,
-    padding: 10,
-    margin: 5,
-    justifyContent: "space-between",
-  },
-  buttonUp: {
-    backgroundColor: "#F0F0F0",
-    width: 20,
-    height: 20,
-    borderRadius: 20,
-  },
-  buttonDown: {
-    backgroundColor: "#F0F0F0",
-    width: 20,
-    height: 20,
-    borderRadius: 20,
-  },
-  colorText: {
-    color: "white",
-    fontSize: 20,
-    alignItems: "center",
-    justifyContent: "center",
-    marginLeft: 9,
-  },
-  buttonBuy: {
-    flexDirection: "row",
-    backgroundColor: "black",
-    width: 120,
-    height: 40,
-    borderRadius: 30,
-    padding: 10,
-    margin: 5,
-    justifyContent: "space-between",
-  },
-  textBuy: {
-    paddingLeft: 20,
-    fontWeight: "bold",
-    color: "white",
-  },
-});
+

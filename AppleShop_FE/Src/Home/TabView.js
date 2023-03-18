@@ -1,6 +1,6 @@
 import { View, Text, Button } from 'react-native'
 import React, { useState } from 'react';
-import styles from '../styles/styles';
+import stylesHome from '../styles/stylesHome';
 import { StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 
 
@@ -13,77 +13,77 @@ const TabView = () => {
     setActiveTab(tabName);
   };
   return (
-    <View style={styles.container}>
-      <View style={styles.ViewHeader}>
-        <View style={styles.ViewImage1}>
+    <View style={stylesHome.container}>
+      <View style={stylesHome.ViewHeader}>
+        <View style={stylesHome.ViewImage1}>
           <Image
-            style={styles.tinyLogo}
+            style={stylesHome.tinyLogo}
             source={require('../Images/logo.png')}
           />
-          <Text style={styles.TextiStore}>iStore</Text>
+          <Text style={stylesHome.TextiStore}>iStore</Text>
         </View>
 
-        <View style={styles.ViewImage2}>
+        <View style={stylesHome.ViewImage2}>
           <Image
-            style={styles.tinyLogo2}
+            style={stylesHome.tinyLogo2}
             source={require('../Images/chuong.png')}
           />
           <Image
-            style={styles.tinyLogo3}
+            style={stylesHome.tinyLogo3}
             source={require('../Images/hinhanh.png')}
           />
         </View>
 
       </View>
-      <View style={styles.backgourdlogo}>
+      <View style={stylesHome.backgourdlogo}>
         <Image
-          style={styles.Logo}
+          style={stylesHome.Logo}
           source={require('../Images/logo2.png')}
         />
       </View>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
 
-        <View style={styles.tabs}>
+        <View style={stylesHome.tabs}>
           <TouchableOpacity
-            style={[styles.tab1, activeTab === 'Tab 1' && styles.activeTab]}
+            style={[stylesHome.tab1, activeTab === 'Tab 1' && stylesHome.activeTab]}
             onPress={() => handleTabPress('Tab 1')}
           >
             <Image
-              style={styles.tinyLogo5}
+              style={stylesHome.tinyLogo5}
               source={require('../Images/imac.png')} />
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'Tab 2' && styles.activeTab]}
+            style={[stylesHome.tab, activeTab === 'Tab 2' && stylesHome.activeTab]}
             onPress={() => handleTabPress('Tab 2')}
           >
             <Image
-              style={styles.tinyLogo5}
+              style={stylesHome.tinyLogo5}
               source={require('../Images/iphone.png')} />
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'Tab 3' && styles.activeTab]}
+            style={[stylesHome.tab, activeTab === 'Tab 3' && stylesHome.activeTab]}
             onPress={() => handleTabPress('Tab 3')}
           >
             <Image
-              style={styles.tinyLogo5}
+              style={stylesHome.tinyLogo5}
               source={require('../Images/ipad.png')} />
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'Tab 4' && styles.activeTab]}
+            style={[stylesHome.tab, activeTab === 'Tab 4' && stylesHome.activeTab]}
             onPress={() => handleTabPress('Tab 4')}
           >
             <Image
-              style={styles.tinyLogo5}
+              style={stylesHome.tinyLogo5}
               source={require('../Images/watch.png')} />
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'Tab 5' && styles.activeTab]}
+            style={[stylesHome.tab, activeTab === 'Tab 5' && stylesHome.activeTab]}
             onPress={() => handleTabPress('Tab 5')}
           >
             <Image
-              style={styles.tinyLogo5}
+              style={stylesHome.tinyLogo5}
               source={require('../Images/airpods.png')} />
           </TouchableOpacity>
         </View>
@@ -91,16 +91,16 @@ const TabView = () => {
       </ScrollView>
 
       {/* // tab 1 */}
-      <View style={styles.tabContent}>
+      <View style={stylesHome.tabContent}>
         {activeTab === 'Tab 1' && (
-          <View style={styles.tabText1}>
-            <View style={styles.tabs1}>
+          <View style={stylesHome.tabText1}>
+            <View style={stylesHome.tabs1}>
               <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1.1' && styles.activeTab]}
+                style={[stylesHome.tab1, activeTab === 'Tab 1.1' && stylesHome.activeTab]}
                 onPress={() => handleTabPress('Tab 1.1')}
               >
-                <View style={styles.viewmac}>
-                  <Text styles={styles.textmac}>MacBook</Text>
+                <View style={stylesHome.viewmac}>
+                  <Text styles={stylesHome.textmac}>MacBook</Text>
                 </View>
                 <View>
 
@@ -108,14 +108,13 @@ const TabView = () => {
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.tab1, activeTab === 'Tab 1.2' && styles.activeTab]}
+                style={[stylesHome.tab1, activeTab === 'Tab 1.2' && stylesHome.activeTab]}
                 onPress={() => handleTabPress('Tab 1.2')}
               >
-                <View style={styles.viewmac}>
-                  <Text styles={styles.textmac}>MacBook</Text>
+                <View style={stylesHome.viewmac}>
+                  <Text styles={stylesHome.textmac}>MacBook</Text>
                 </View>
                 <View>
-
                 </View>
               </TouchableOpacity>
             </View>
@@ -123,20 +122,18 @@ const TabView = () => {
         )}
       </View>
       {/* //tab2 */}
-      <View style={styles.tabContent}>
+      <View style={stylesHome.tabContent}>
         {activeTab === 'Tab 2' && (
-          <View style={styles.tabContentText2}>
-
+          <View style={stylesHome.tabContentText2}>
           </View>
         )}
-
       </View>
 
 
 
-      <View style={styles.tabContent}>
+      <View style={stylesHome.tabContent}>
         {activeTab === 'Tab 1.1' && (
-          <View style={styles.tabText1}>
+          <View style={stylesHome.tabText1}>
             <View style={styles.tabs1}>
               <View>
                 <Text>
@@ -147,15 +144,15 @@ const TabView = () => {
           </View>
         )}
       </View>
-  
-      <View style={styles.tabContent}>
+
+      <View style={stylesHome.tabContent}>
         {activeTab === 'Tab 1.2' && (
-          <View style={styles.tabContentText2}>
+          <View style={stylesHome.tabContentText2}>
             <View>
               <Text>
-              j
+                j
               </Text>
-              </View>
+            </View>
           </View>
         )}
 

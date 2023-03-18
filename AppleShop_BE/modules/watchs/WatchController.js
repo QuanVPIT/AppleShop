@@ -11,9 +11,9 @@ const get = async () => {
     }
 }
 
-const create = async (name, image, year, categoryId) => {
+const create = async (name, param, image, price, year, categoryId) => {
     try {
-        const watch = await watchService.create(name, image, year, categoryId);
+        const watch = await watchService.create(name, param, image, price, year, categoryId);
         return watch;
     } catch (error) {
         console.log(error);
@@ -38,9 +38,9 @@ const getOne = async (id) => {
     }
 }
 
-const update = async (id, name, image, year, categoryId) => {
+const update = async (id, name, param, image, price, year, categoryId) => {
     try {
-        const watch = await watchService.update(id, name, image, year, categoryId);
+        const watch = await watchService.update(id, name, param, image, price, year, categoryId);
         return watch;
     } catch (error) {
         console.log(error);

@@ -8,10 +8,14 @@
                 <tr>
                     <th style="width: 80px;">STT</th>
                     <th style="width: 80px;">Tên sản phẩm</th>
+                    <th style="width: 100px;">Thông số</th>
                     <th style="width: 100px;">Năm sản xuất</th>
+                    <th style="width: 100px;">Giá</th>
                     <th style="width: 80px;">Danh mục</th>
                     <th>Ảnh</th>
                     <th style="width: 80px;">Tùy Chỉnh</th>
+
+
                 </tr>
             </thead>
             <tbody>
@@ -19,21 +23,27 @@
                 <tr>
                     <td>{{this.index}}</td>
                     <td>{{this.name}}</td>
+                    <td>{{this.param}}</td>
                     <td>{{this.year}}</td>
+                    <td>{{this.price}}</td>
                     <td>{{this.categoryId.name}}</td>
                     <td><img height="150" width="150" src="{{this.image}}" alt=""></td>
                     <td>
-                    <button onclick="goDetail('{{this._id}}');">Sửa</button>
-                    <button onclick="goXoa('{{this._id}}');">Xóa</button>
-                </td>
+                        <button onclick="goDetail('{{this._id}}');">Sửa</button>
+                        <button onclick="goXoa('{{this._id}}');">Xóa</button>
+                    </td>
+
                 </tr>
                 {{/each}}
             </tbody>
+            <form action="/paypal" method="post">
+            <input type="submit" value="Thanh Toan">
+        </form>
         </table>
+        
     </div>
 </body>
 <script>
-
     const API = async (url, option) => {
         const res = await fetch(url, option);
         return res.json();

@@ -11,9 +11,9 @@ const get = async () => {
     }
 }
 
-const create = async (name, image, year, categoryId) => {
+const create = async (name, param, image, year, categoryId) => {
     try {
-        const iphone = await iphoneService.create(name, image, year, categoryId);
+        const iphone = await iphoneService.create(name, param, image, year, categoryId);
         return iphone;
     } catch (error) {
         console.log(error);
@@ -37,9 +37,9 @@ const getOne = async (id) => {
     }
 }
 
-const update = async (id, name, image, year, categoryId) => {
+const update = async (id, name, param, image, price, year, categoryId) => {
     try {
-        const iphone = await iphoneService.update(id, name, image, year, categoryId);
+        const iphone = await iphoneService.update(id, name, param, image, price, year, categoryId);
         return iphone;
     } catch (error) {
         console.log(error);

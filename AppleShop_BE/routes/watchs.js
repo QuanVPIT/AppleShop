@@ -18,7 +18,9 @@ const getConstant = require('../helper/constanst').getConstant;
 //         return {
 //             _id: p._id,
 //             name: p.name,
+//             param: p.param,
 //             image: p.image,
+//             price: p.price,
 //             year: p.year,
 //             categoryId: p.categoryId,
 //             index: index + 1,
@@ -73,11 +75,11 @@ const getConstant = require('../helper/constanst').getConstant;
 // router.post('/:id/detail', [middleware.single('image'),], async function (req, res, next) {
 //     try {
 //         let { file } = req;
-//         let { name, image, year, categoryId } = req.body;
+//         let { name, param, image, price, year, categoryId } = req.body;
 //         let { id } = req.params;
 //         image = file ? file.filename : '';
 //         image = image ? `${getConstant().HOST}/images/${image}` : '';
-//         await WatchController.update(id, name, image, year, categoryId);
+//         await WatchController.update(id, name, param, image, price, year, categoryId);
 //         res.redirect('/san-pham5');
 //         // res.status(200).json(watchs);
 //     } catch (error) {
@@ -102,10 +104,10 @@ router.get('/tao-moi5', async function (req, res, next) {
 router.post('/tao-moi5', [middleware.single('image'),], async function (req, res, next) {
     try {
         let { file } = req;
-        let { name, image, year, categoryId } = req.body;
+        let { name, param, image, price, year, categoryId } = req.body;
         image = file ? file.filename : '';
         image = image ? `${getConstant().HOST}/images/${image}` : '';
-        await WatchController.create(name, image, year, categoryId);
+        await WatchController.create(name, param, image, price, year, categoryId);
         res.redirect('/san-pham5');
     } catch (error) {
         console.log(error);
@@ -127,7 +129,9 @@ router.get('/', async function (req, res, next) {
         return {
             _id: p._id,
             name: p.name,
+            params: p.param,
             image: p.image,
+            price: p.price,
             year: p.year,
             categoryId: p.categoryId,
             index: index + 1,
@@ -182,11 +186,11 @@ router.get('/:id/detail', async function (req, res, next) {
 router.post('/:id/detail', [middleware.single('image'),], async function (req, res, next) {
     try {
         let { file } = req;
-        let { name, image, year, categoryId } = req.body;
+        let { name, param, image, price, year, categoryId } = req.body;
         let { id } = req.params;
         image = file ? file.filename : '';
         image = image ? `${getConstant().HOST}/images/${image}` : '';
-        await WatchController.update(id, name, image, year, categoryId);
+        await WatchController.update(id, name, param, image, price, year, categoryId);
         //res.redirect('/san-pham5');
         res.status(200).json(watchs);
     } catch (error) {

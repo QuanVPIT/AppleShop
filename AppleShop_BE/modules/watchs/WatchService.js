@@ -18,20 +18,20 @@ const getOne = async (id) => {
 
 }
 
-const create = async (name, image, year, categoryId) => {
+const create = async (name, param, image, price, year, categoryId) => {
     //insert into products (name, price, image, description, category_id) 
     //values (name, price, image, description, category_id)
-    const model = new watchModel({ name, image, year, categoryId });
+    const model = new watchModel({name, param, image, price, year, categoryId });
     await model.save();
     return model;
 }
 
-const update = async (id, name, image, categoryId) => {
+const update = async (id, name, param, image, price, year, categoryId) => {
     //update products set name = name, price = price, image = image, description = description categoryId
     //where id = id
     const watch = await watchModel.findById(id);
     const model = await watchModel.findByIdAndUpdate(id,
-        { name, image: image ? image : watch.image, year, categoryId });
+        { name, param, image: image ? image : watch.image, price, year, categoryId });
     return model;
 }
 

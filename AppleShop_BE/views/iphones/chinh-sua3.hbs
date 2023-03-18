@@ -1,6 +1,8 @@
 <form method="post" action="/san-pham3/{{iphone._id}}/detail" enctype="multipart/form-data">
     <input type="text" name="name" value="{{iphone.name}}" placeholder="Nhập sản phẩm" /> <br />
+    <input type="text" name="param" value="{{iphone.param}}" placeholder="Nhập thông số"/> <br />
     <input type="text" name="year" value="{{iphone.year}}" placeholder="Năm sản xuất" /> <br />
+    <input type="text" name="price" value="{{iphone.price}}" placeholder="Giá" /> <br />
     <input type="file" name="image" value="{{iphone.image}}" onchange="loadFile(event);" /> <br />
     <img width="250" height="250" id="img-display" alt="Image" src="{{iphone.image}}"><br />
     <select name="categoryId">
