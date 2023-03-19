@@ -13,14 +13,15 @@ const getConstant = require('../helper/constanst').getConstant;
 //  * http://localhost:3000/san-pham5/
 //  */
 // router.get('/', async function (req, res, next) {
-//     let watchs = await WatchController.get();
+//     let watchs = await WatchController.get(); 
 //     watchs = watchs.map((p, index) => {
+//         const price=  p.price.toLocaleString('vi', {style : 'currency', currency : 'VND'}); 
 //         return {
 //             _id: p._id,
 //             name: p.name,
 //             param: p.param,
 //             image: p.image,
-//             price: p.price,
+//             price: price,
 //             year: p.year,
 //             categoryId: p.categoryId,
 //             index: index + 1,

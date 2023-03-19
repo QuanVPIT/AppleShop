@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { MainStackNavigator } from './Src/Navigation/MainStackNavigator';
+import SlashScreen from './Src/Home/SlashScreen';
 
 
 // const Stack = createStackNavigator();
+
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
     <NavigationContainer>
        <MainStackNavigator />
     </NavigationContainer>
+  
   );
 }
 

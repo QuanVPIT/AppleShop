@@ -15,12 +15,13 @@ const getConstant = require('../helper/constanst').getConstant;
 // router.get('/', async function (req, res, next) {
 //   let airpods = await AirpodController.get();
 //   airpods = airpods.map((p, index) => {
+//   const price=  p.price.toLocaleString('vi', {style : 'currency', currency : 'VND'});
 //     return {
 //       _id: p._id,
 //       name: p.name,
 //       param: p.param,
-//       image: p.image,
-//       price: p.price,
+//       image: p.image, 
+//       price: price,
 //       year: p.year,
 //       categoryId: p.categoryId,
 //       index: index + 1,
@@ -201,4 +202,6 @@ router.post('/:id/detail', [middleware.single('image'),], async function (req, r
     next(error);
   }
 });
+
+
 module.exports = router;

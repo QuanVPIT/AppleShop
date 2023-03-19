@@ -12,15 +12,16 @@ const getConstant = require('../helper/constanst').getConstant;
 //  * Hiển thị trang danh sách sản phẩm 
 //  * http://localhost:3000/san-pham4/
 //  */
-// router.get('/', async function (req, res, next) {
+// router.get('/', async function (req, res, next) { 
 //   let ipads = await IpadController.get();
 //   ipads = ipads.map((p, index) => {
+//     const price=  p.price.toLocaleString('vi', {style : 'currency', currency : 'VND'});
 //     return {
 //       _id: p._id,
 //       name: p.name,
 //       param: p.param,
 //       image: p.image,
-//       price: p.price,
+//       price: price,
 //       year: p.year,
 //       categoryId: p.categoryId,
 //       index: index + 1,
