@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem } from "@react-native-material/core"
 import Icon from "@expo/vector-icons/MaterialCommunityIcons"
 import { SafeAreaView, View, StyleSheet, Text } from "react-native";
-import UploadImage from "./UploadImage";
+import UploadImage from "../Profile/UploadImage";
 
 const ProfileScreen = () => (
   <View style={styles.container}>

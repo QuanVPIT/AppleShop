@@ -1,13 +1,16 @@
 import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
-import ProfileScreen from './Scr/Profile/ProfileScreen'
-import DPScreen from './Scr/DetailProduct/DPScreen'
+import ProfileScreen from './Scr/Screen/MyProducts/ProfileScreen'
+import DPScreen from './Scr/Screen/Profile/DPScreen'
+import Main from './Scr/Main';
+import { mystore } from './Scr/Redux/MyStore';
+import { Provider } from 'react-redux';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <DPScreen/>
-    </SafeAreaView>
+    <Provider store={mystore}>
+      <Main/>
+    </Provider>
   )
 }
 

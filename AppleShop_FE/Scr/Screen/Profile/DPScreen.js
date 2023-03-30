@@ -9,7 +9,7 @@ const DPScreen = () => (
             <View style={styles.circle}>
                 <Image
                     style={styles.imgProduct}
-                    source={require('../../assets/laptop1.png')}
+                    source={require('../../../assets/laptop1.png')}
                 />
             </View>
         </View>
@@ -50,13 +50,13 @@ const DPScreen = () => (
                 <View style={styles.buttonSP}>
                     <TouchableOpacity style={styles.buttonDown} activeOpacity={0.5}>
                         <Image
-                            source={require('../../assets/Group86.png')}
+                            source={require('../../../assets/Group86.png')}
                             style={styles.buttonDown}
                         />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.buttonUp} activeOpacity={0.5}>
                         <Image
-                            source={require('../../assets/Group87.png')}
+                            source={require('../../../assets/Group87.png')}
                             style={styles.buttonDown}
                         />
                     </TouchableOpacity>
