@@ -4,11 +4,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addProductToMyCart, deleteMyCartItem, removeMyCartItem } from '../../Redux/MyCartSlice';
 import { increaseQty } from '../../Redux/MyProductSlice';
 import { useNavigation } from '@react-navigation/native';
+import MyProducts from '../MyProducts/MyProducts';
 
 const MyCart = () => {
   const myCartItems = useSelector(state => state.cart);
   const navigation = useNavigation();
   const dispatch = useDispatch();
+  const getTotal = () => {
+    let total = 0;
+    myCartItems?.map(item => {
+        total = total + item.qty + item.price;
+    });
+    return total;
+};
   return (
     <View style={{ flex: 1 }}>
       <View style={{
@@ -18,25 +26,13 @@ const MyCart = () => {
         backgroundColor: '#fff',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-      }}>
-      
-      </View>
-      <View style={{
-        width: '100%',
-        height: 60,
-        paddingLeft: 20,
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         flexDirection: 'row',
       }}>
         <TouchableOpacity
           style={{
             marginTop: 30,
-            paddingLeft: 20,
+            paddingLeft: 10,
             height: 30,
             justifyContent: 'flex-start',
             alignItems: 'center',
@@ -45,9 +41,9 @@ const MyCart = () => {
           onPress={() => {
             navigation.goBack();
           }}>
-          <Text style={{fontWeight: '700', fontSize: 20, }}>Back</Text>
+          <Text style={{ fontWeight: '700', fontSize: 20, }}>Back</Text>
         </TouchableOpacity>
-        <Text style={{ color: '#000', fontWeight: '800', fontSize: 16, marginTop: 20 }}>
+        <Text style={{ color: '#000', fontWeight: '700', fontSize: 20, marginTop: 30, paddingRight: 40 }}>
           Payment
         </Text>
       </View>
@@ -145,8 +141,76 @@ const MyCart = () => {
         }}
       >
       </FlatList>
+      <View style={{
+        width: '100%',
+        height: 180,
+        paddingLeft: 10,
+        backgroundColor: '#fff',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        <Text style={{ fontWeight: '500', fontSize: 20, marginTop: 10, }}>
+          Phương Thức Thanh toán
+        </Text>
+        <View style={{
+          backgroundColor: '#fff',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <TouchableOpacity
+            style={{
+              height: 80,
+              width: 180,
+              borderRadius: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#F0F0F0',
+              marginTop: 5,
+              paddingLeft: 10,
+              paddingRight: 10,
+         
+            }}>
+              <Image source={require('../../../assets/paypal.png')} style={{width:50,height:50}}></Image>
+            <Text style={{ color: 'black' }}>Paypal</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              height: 80,
+              width: 180,
+              borderRadius: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#F0F0F0',
+              marginTop: 5,
+              paddingLeft: 10,
+              paddingRight: 10,
+              marginLeft: 10,
+            }}>
+            <Image source={require('../../../assets/zalopay2.png')} style={{width:50,height:50}}></Image>
+            <Text style={{ color: 'black' }}>Zalo Pay</Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity
+            style={{
+              height: 40,
+              width: 120,
+              borderRadius: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: 'black',
+              marginTop: 5,
+              paddingLeft: 10,
+              paddingRight: 10,
+              marginLeft: 10,
+            }}>
+            <Text style={{ color: '#fff',fontSize: 16, }}>{ '$'+getTotal()  }</Text>
+          </TouchableOpacity>
+      </View>
 
     </View>
+
   )
 }
 

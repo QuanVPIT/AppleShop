@@ -13,11 +13,17 @@ const MyProducts = () => {
     const dispatch = useDispatch();
     const getTotal = () => {
         let total = 0;
-        myCartItems.map(item => {
+        myCartItems?.map(item => {
             total = total + item.qty + item.price;
         });
         return total;
     };
+    // const getCartTotal = () => {
+    //     let total = 0;
+    //     {
+    //       myCartItems.map((item) => total + item.qty + item.price;);
+    //     }
+    //   };
     return (
         <View style={{ flex: 1 }}>
             <View style={{
@@ -30,7 +36,7 @@ const MyProducts = () => {
                 justifyContent: 'space-between',
                 flexDirection: 'row',
             }}>
-                <Text style={{ color: '#000', fontWeight: '800', fontSize: 16, marginTop: 20 }}>
+                <Text style={{ color: '#000', fontWeight: '700', fontSize: 20, marginTop: 30,paddingRight:40 }}>
                     My Cart
                 </Text>
             </View>
