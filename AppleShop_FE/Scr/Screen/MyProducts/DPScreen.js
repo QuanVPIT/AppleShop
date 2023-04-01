@@ -1,4 +1,4 @@
-import { Button } from '@react-native-material/core';
+
 import React from 'react';
 import { View, Text, Dimensions, StyleSheet, Image, TouchableOpacity } from 'react-native';
 

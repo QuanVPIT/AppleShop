@@ -1,4 +1,4 @@
-import { View, Text, FlatList, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductToMyCart } from '../../Redux/MyCartSlice';
@@ -18,12 +18,7 @@ const MyProducts = () => {
         });
         return total;
     };
-    // const getCartTotal = () => {
-    //     let total = 0;
-    //     {
-    //       myCartItems.map((item) => total + item.qty + item.price;);
-    //     }
-    //   };
+   
     return (
         <View style={{ flex: 1 }}>
             <View style={{
